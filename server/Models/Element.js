@@ -8,11 +8,11 @@ const ElementSchema=new mongoose.Schema({
       },
       title:{
           type:String,
-          required:true
+        //   required:true
       },
       description:{
           type:String,
-          required:true,
+        //   required:true,
       },
       tag:{
          type:String,
