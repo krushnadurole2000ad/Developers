@@ -8,15 +8,34 @@ const ElementSchema=new mongoose.Schema({
       },
       name:{
           type:String,
-        //   required:true
+          required:true
+      },
+      email:{
+        type:mongoose.Schema.email,
+        ref:'user'
+      },
+      role:{
+        type:String,
+        default:'General'
+      },
+      contactNum:{
+        type:String
       },
       description:{
           type:String,
-        //   required:true,
+          required:true,
       },
-      tag:{
-         type:String,
-         default:'General'
+      github:{
+        type:String
+      },
+      linkedin:{
+        type:String
+      },
+      resumelink:{
+        type:String
+      },
+      achievements:{
+        type:String
       },
       date:{
           type:Date,

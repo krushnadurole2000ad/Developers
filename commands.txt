@@ -4,3 +4,21 @@ backend part start : npm run dev
 installed the date-fns npm module 
 to convert the mongodb time stamp 
 to human readable date format. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+why i am not taking all the informationa at start. 
+becuase generally no one becomes ready to given infomrationa at start.
+unless you know about something how you can trust to it . 
+that's why at first we do the user registration . 
+then we will give a option to the user to create a developer profile.
