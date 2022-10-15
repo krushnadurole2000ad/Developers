@@ -1,0 +1,6 @@
+frontend part start : npm start
+backend part start : npm run dev
+
+installed the date-fns npm module 
+to convert the mongodb time stamp 
+to human readable date format. 

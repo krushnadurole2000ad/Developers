@@ -9,11 +9,11 @@ const Alldevelopers = () => {
     getdev();
   }, [])
   const updatedev = ()=>{
-
+    
   }
   return (
     <>
-      <div>Alldevelopers</div>
+      <h1 class="display-1">All Developers</h1>
       <div className="container mx-2">
         {devs.length === 0 && "No Developers to Display 🥺🥺🥺"}
       </div>
