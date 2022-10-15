@@ -11,8 +11,7 @@ const ElementSchema=new mongoose.Schema({
           required:true
       },
       email:{
-        type:mongoose.Schema.email,
-        ref:'user'
+        type:String
       },
       role:{
         type:String,

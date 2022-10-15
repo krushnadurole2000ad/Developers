@@ -18,7 +18,7 @@ Router.get('/getalldevelopers',async(req,res)=>{
 Router.post('/adddevelopers', async (req, res) => {
 
         try {
-            const { name, description } = req.body;
+            const { name, email,role,contactNum,description,github,linkedin } = req.body;
 
             // If there are errors, return Bad request and the errors
             // const errors = validationResult(req);
@@ -26,7 +26,7 @@ Router.post('/adddevelopers', async (req, res) => {
             //     return res.status(400).json({ errors: errors.array() });
             // }
             const element = new Element({
-                name, description
+                name, email,role,contactNum,description,github,linkedin
             })
             const savedelement = await element.save()
 

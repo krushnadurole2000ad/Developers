@@ -52,11 +52,15 @@ const Developer = (props) => {
 
             <div class="card text-center">
                 <div class="card-header">
-                    {developer.tag}
+                    {developer.role}
                 </div>
                 <div class="card-body">
                     <h5 class="card-title">{developer.name}</h5>
                     <p class="card-text">{developer.description}</p>
+                    <h6>{developer.email}</h6>
+                    <a href = {developer.github}>Github</a> <br></br>
+                    <a href = {developer.linkedin}>linkedin</a>
+                    <p>{developer.contactNum}</p>
                     <a href="/" class="btn btn-primary">Let's make collabration</a>
                 </div>
                 <div class="card-footer text-muted">
