@@ -12,7 +12,7 @@ app.use('/api/v1', require('./Routes/elements'))
 app.use('/api/v1', require('./Routes/auth'))
 
 app.listen(port, () => {
-  console.log(`iNotebook backend server is listening on port ${port}`)
+  console.log(`Developer Application's backend server is listening on port ${port}`)
 })
 
 app.get('/', (req, res) => {

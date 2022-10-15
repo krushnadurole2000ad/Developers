@@ -6,7 +6,7 @@ const ElementSchema=new mongoose.Schema({
           type:mongoose.Schema.Types.ObjectId,
           ref:'user'
       },
-      title:{
+      name:{
           type:String,
         //   required:true
       },
