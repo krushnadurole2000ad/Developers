@@ -19,6 +19,9 @@ const DevState = (props) => {
         console.log(json);
         setdevs(json);
     }
+    // add developer
+    // delete developer
+    // update developer
     return (
         <div>
             <DevContext.Provider value = {{getdev,devs}}>

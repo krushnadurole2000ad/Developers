@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import DevState from './context/developers/DevState';
 import Alert from './components/Alert';
 import DashBoard from './components/DashBoard';
+import SignUp from './components/SignUp';
 function App() {
   return (
     <>
@@ -19,7 +20,7 @@ function App() {
               <Route exact path = "/" element = {<DashBoard/>}/>
               <Route exact path = "/about" element = {<AboutUs />}/>
               <Route exact path ="/login"element={<Login/>}/>
-              <Route exact path = "/signup" />
+              <Route exact path = "/signup" element={<SignUp/>} />
               <Route exact path = "/alldevprof"/> <Alldevelopers />
               <AboutUs />
             </Routes>
