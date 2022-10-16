@@ -10,15 +10,22 @@ to human readable date format.
 
 
 
-
-
-
-
-
-
-
 why i am not taking all the informationa at start. 
-becuase generally no one becomes ready to given infomrationa at start.
+because generally no one becomes ready to given infomrationa at start.
 unless you know about something how you can trust to it . 
 that's why at first we do the user registration . 
 then we will give a option to the user to create a developer profile.
+
+what feature will be there in the application : 
+1. login and signup
+2. Student can add his developer profile. 
+3. student can mention his role,contact,email,
+description,achievements,resume,etc.
+4. All the developers profile will be displayed to the dashboard.
+5. Each profile can be viewed by any authorized user. 
+6. only vitians are allowed as an authorized user .for now.
+7. every profile will have a review and ratings. 
+8. every developer can update status : busy in ESE,busy in hackathon ,
+i am free ryt now for project work. 
+9. About us page.
+10. Better UI

@@ -1,7 +1,7 @@
 const express=require('express');
 const Router=express.Router();
 const {body,validationResult} = require('express-validator')
-const Element = require("../Models/Element")
+const Element = require("../Models/DevProfile")
 const app = express();
 Router.get('/getalldevelopers',async(req,res)=>{
     try {

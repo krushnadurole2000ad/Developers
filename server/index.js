@@ -8,7 +8,7 @@ const port = process.env.PORT || 5000;
 app.use(cors())
 app.use(express.json());
 // Available Routes
-app.use('/api/v1', require('./Routes/elements'))
+app.use('/api/v1', require('./Routes/Profile'))
 app.use('/api/v1', require('./Routes/auth'))
 
 app.listen(port, () => {
