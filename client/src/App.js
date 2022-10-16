@@ -19,7 +19,8 @@ function App() {
               <Route exact path = "/" element = {<DashBoard/>}/>
               <Route exact path = "/about" element = {<AboutUs />}/>
               <Route exact path ="/login"element={<Login/>}/>
-              <Route exact path = "Signup"/> <Alldevelopers />
+              <Route exact path = "/signup" />
+              <Route exact path = "/alldevprof"/> <Alldevelopers />
               <AboutUs />
             </Routes>
           </div>
