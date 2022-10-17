@@ -1,5 +1,4 @@
 import React from 'react'
-
 const AboutUs = () => {
   return (
     <div>
@@ -13,7 +12,7 @@ const AboutUs = () => {
         Actually one day , me and my friend wants to go to a hackathon 
         but for that hackathon we need someone who know blockchain technology very well. 
         and another guy who knows hardware (electronics good enough);
-
+    
         But we were not able to find them and end up with not partipating in hackathon.
         so we were upset because of this . 
         then I though that there should be a platform on which our 
@@ -29,8 +28,12 @@ const AboutUs = () => {
         the someone who need his help. 
         its just like 
         thursty person going to river or vice versa.
+
+        
+
     </div>
   )
 }
 
 export default AboutUs
+

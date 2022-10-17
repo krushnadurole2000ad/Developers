@@ -26,6 +26,7 @@ function App() {
             </Routes>
           </div>
         </Router>
+        <AboutUs/>
       </DevState>
     </>
   );

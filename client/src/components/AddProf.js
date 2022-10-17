@@ -56,6 +56,7 @@ const AddProf = () => {
                     <label htmlFor='achievements' className='form-label'> achievements </label>
                     <input type='text' className='form-control' aria-describedby='emailHelp' value={Dev.achievements} id='achievements' name='achievements' onchange={onchange} minLength={5} required/>
                 </div>
+                <button onClick={handleclick}>Add My Developer Profile</button>
             </form>
         </div>
     </div>
