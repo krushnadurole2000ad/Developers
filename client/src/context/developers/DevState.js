@@ -20,11 +20,23 @@ const DevState = (props) => {
         setdevs(json);
     }
     // add developer
+    const addprof = async (name,email,role,contactNum,description,github,linkedin,resumelink,achievements) =>{
+        const response = await fetch(`http://localhost:5000/api/v1/adddevelopers`,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({name,email,role,contactNum,description,github,linkedin,resumelink,achievements})
+        })
+        const dev = await response.json();
+        console.log("Adding a  developer profile. ");
+        setdevs(devs.concat(dev));
+    }
     // delete developer
     // update developer
     return (
         <div>
-            <DevContext.Provider value = {{getdev,devs}}>
+            <DevContext.Provider value = {{getdev,devs,addprof}}>
                 {props.children}
             </DevContext.Provider>
         </div>

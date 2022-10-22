@@ -37,7 +37,7 @@ router.post('/signup',[
     let user=await User.create({
         name: req.body.name,
         email: req.body.email,
-        password: secpass,
+        password: secpass, 
     });
     const data={
         user:{
@@ -58,8 +58,8 @@ router.post('/signup',[
 // -----------------------------------------------------------------------------------------------------------------------------
 // ROUTE2:Login a user using POST:api/auth/login.No login required.
 router.post('/login',[
-    body('email','Enter valid email').isEmail(),
-    body('password','password cannot be blank').exists(),
+    body('email','Enter valid email'),
+    body('password','password cannot be blank'),
 ],async(req,res)=>{
     let success=false;
     const errors = validationResult(req);
@@ -72,13 +72,13 @@ router.post('/login',[
         let user=await User.findOne({email});
         if(!user){
             success=false;
-            return res.status(400).json({success,error:"Please enter valid crediantals"})
+            return res.status(400).json({success,error:"Please enter valid crediantals - 1"})
         }
 
         const comparepassword=await bcrypt.compare(password,user.password);
         if(!comparepassword){
             success=false;
-            return res.status(400).json({success,errors:"Please enter valid crediantals"});
+            return res.status(400).json({success,errors:"Please enter valid crediantals-2"});
         }
 
         const data={

@@ -1,22 +1,33 @@
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { json, useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
-  const [credentials,setcredientials] = useState({name:"",email:"",password:"",cpassword:""}); 
+  const [credentials, setcredientials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let navigate = useNavigate();
-  const handleSubmit =async (e)=>{
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const {name,email,password} = credentials;
-    const response = await fetch('https://localhost:5000/api/v1/signup',{
-      
+    const { name, email, password } = credentials;
+    const response = await fetch('http://localhost:5000/api/v1/signup', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ name, email, password })
     })
+    const json = await response.json();
+    console.log(json);
+    if (json.success) {
+      localStorage.setItem('authtoken', json.authtoken);
+      navigate('/login');
+
+    }
   }
-  const onchange = (element)=>{
-    setcredientials({...credentials,[e.target.name]:e.target.value})
+  const onchange = (e) => {
+    setcredientials({ ...credentials, [e.target.name]: e.target.value })
   }
   return (
     <>
-       <form onSubmit={handleSubmit}>
+      <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>
           <input type="text" className="form-control" name='name' id="name" onChange={onchange} />
