@@ -99,7 +99,7 @@ router.post('/login',[
 // --------------------------------------------------------------------------------------------------------------------------------
 // ROUTE3:Get logged in user detail using POST:api/auth/getuser.Login required
 
-router.post('/getuser',fetchuser,async(req,res)=>{
+router.get('/veryhelpful',fetchuser,async(req,res)=>{
     try {
      let userid=req.user.id;
      const user=await User.findById(userid).select("-password");
@@ -110,6 +110,7 @@ router.post('/getuser',fetchuser,async(req,res)=>{
     res.status(500).send("Somes error occured")
 }
 });
+
 
 
 module.exports=router
