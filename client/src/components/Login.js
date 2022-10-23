@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import {json, useNavigate} from 'react-router-dom'
-
+import './Login.css'
 const Login = () => {
   
   const [credentials,setcredientials] = useState({email:"",password:""});
@@ -33,18 +33,18 @@ const Login = () => {
   return (
     <>
             <div className="container mt-3">
-                <h2 className='mb-3'>Log In to continue With iNoteBook</h2>
-                <h5>If you have Account else signup</h5>
+                <p>If you have account Please Login</p>
+                <h6 >Else Sign Up</h6>
                 <form onSubmit={handleSubmit}>
                     <div className="form-floating mb-3">
-                        <input type="email" className="form-control" id="email" name='email' value={credentials.email} onChange={onchange}  required />
+                        <input type="email" className="form-control ip" id="email" name='email' value={credentials.email} onChange={onchange}  required />
                         <label htmlFor="email">Email address</label>
                     </div>
-                    <div className="form-floating">
-                        <input type="text" className="form-control" id="password"name='password' value={credentials.password} onChange={onchange}   required />
-                        <label htmlFor="password">Password</label>
+                    <div className="form-floating ip">
+                        <input type="text" className="form-control ip" id="password"name='password' value={credentials.password} onChange={onchange}   required />
+                        <label htmlFor="password" >Password</label>
                     </div>
-                    <button type="submit" className="btn btn-primary my-3" >Submit</button>
+                    <button type="submit" className="btn btn-outline-success my-3" >Submit</button>
                 </form>
             </div>
         </>

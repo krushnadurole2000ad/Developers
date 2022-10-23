@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { json, useNavigate } from 'react-router-dom';
-
+import './SignUp.css'
 const SignUp = () => {
   const [credentials, setcredientials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let navigate = useNavigate();
@@ -27,6 +27,7 @@ const SignUp = () => {
   }
   return (
     <>
+      <h1>Sign Up</h1>
       <form onSubmit={handleSubmit}>
         <div className="mb-3">
           <label htmlFor="name" className="form-label">Name</label>

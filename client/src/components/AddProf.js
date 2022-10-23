@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
 import DevContext from '../context/developers/DevContext'
+import './AddProf.css'
 const AddProf = () => {
 
     const context = useContext(DevContext);
@@ -16,9 +17,9 @@ const AddProf = () => {
     // add the developer
     return (
         <div>
-            <div className='my-3'>
+            <div className='my-3 f'>
                 <h1>Add Your Developer Profile</h1>
-                <form className='my-3'>
+                <form className='my-3 f'>
                     <div className="my-3">
                         <label htmlFor="name" className="form-label">Name</label>
                         <input type="text" className="form-control" id="name" name='name' aria-describedby="emailHelp" value={Dev.name} onChange={onchange} minLength={5} required />
@@ -60,7 +61,9 @@ const AddProf = () => {
 
 
 
-                    <button onClick={handleclick}>Add My Developer Profile</button>
+                    {/* <button onClick={handleclick}>Add My Developer Profile</button> */}
+                    <button type="button" onClick={handleclick} class="btn btn-outline-success">Add My Developer Profile</button>
+
                 </form>
             </div>
         </div>
