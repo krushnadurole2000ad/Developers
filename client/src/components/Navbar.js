@@ -18,6 +18,7 @@ const Navbar = () => {
                             <Link className="btn btn-primary mx-1" to="/alldevprof" role="button">All developers</Link>
                             <Link className="btn btn-primary mx-1" to="/aboutus" role="button">About us</Link>
                             <Link className="btn btn-primary mx-1" to="/adddprof" role="button">Add Developer Profile</Link>
+                            <Link className="btn btn-primary mx-1" to="/" role="button">User Profile</Link>
                             <span><button className="btn btn-primary mx-1">Log Out</button></span>
                         </form> : 
                     </div>
