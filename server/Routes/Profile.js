@@ -49,4 +49,54 @@ Router.get('/fetchuserprofile',fetchuser,async(req,res)=>{
         res.status(401).send("Something went Wrong")
     }
 })
+
+
+// update the profile . 
+Router.put('/update/:id',fetchuser,async(req,res)=>{
+    const {name,email,role,contactNum,description,github,linkedin,resumelink,achievements,date} = req.body;
+    // create a new developer object. 
+    const newdev = {};
+    if(name) {newdev.name = name};
+    if(email){newdev.email=email}
+    if(role) {newdev.role = role} ;
+    if(contactNum){newdev.contactNum = contactNum}
+    if(description){newdev.description=description};
+    if(github){newdev.github = github};
+    if(linkedin){newdev.github = github};
+    if(resumelink) {newdev.resumelink =resumelink};
+    if(achievements){newdev.achievements=achievements};
+    if(date){newdev.date=date};  
+
+    // update the developer. 
+    let developer = await Element.find(req.params.id);
+    if(!developer){
+        return res.status(400).send("Not Found");
+    }
+    if(developer.user.toString()!=req.user.id){
+        return res.status(401).send("Not allowed");
+    }
+    developer = await Element.findByIdAndUpdate(req.params.id,{$set:newdev},{new:true});
+    res.json({developer});
+})
+
+
+
+// router delete an existing developer using DELETE: api/dev/delete/:id
+Router.delete('/delete/:id',fetchuser,async(req,res)=>{
+    try {
+        let deve = await Element.findById(req.params.id);
+        if(!deve){
+            // 400 shows bad status like not found
+            return res.status(400).send("Not Found");
+        }
+        if(deve.user.toString()!=req.user.id){
+            // 401 is for unauthorized error.
+            return res.status(401).send("Not Allowed to Delete !");
+        }
+        deve = await Element.findByIdAndDelete(req.params.id);
+        res.json({success:"Successfully deleted the developer"});
+    } catch (error) {
+        res.status(400).send("something went wrong");
+    }
+})
 module.exports = Router;

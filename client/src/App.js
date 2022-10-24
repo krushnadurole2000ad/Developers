@@ -9,6 +9,7 @@ import Alert from './components/Alert';
 import DashBoard from './components/DashBoard';
 import SignUp from './components/SignUp';
 import AddProf from './components/AddProf';
+import MyProfiles from './components/MyProfiles';
 function App() {
   return (
     <>
@@ -25,6 +26,7 @@ function App() {
               <Route exact path = "/alldevprof" element={<Alldevelopers/>}  />
               <Route exact path = "/aboutus"element={<AboutUs/>}/>
               <Route exact path = "/adddprof" element ={<AddProf/>}/>
+              <Route exact path = "/Myprofile" element ={<MyProfiles/>}/>
             </Routes>
           </div>
         </BrowserRouter>

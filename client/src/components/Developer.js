@@ -25,7 +25,8 @@ const Developer = (props) => {
                     <a href = {developer.github}>Github</a> <br></br>
                     <a href = {developer.linkedin}>linkedin</a>
                     <p>{developer.contactNum}</p>
-                    <a href="/" class="btn btn-outline-dark">Let's make collabration</a>
+                    {/* <a href="/" class="btn btn-outline-dark">Let's make collabration</a> */}
+                    <button className='btn btn-outline-dark'>Let's make collabration</button>
                 </div>
                 <div class="card-footer text-muted">
                     {/* {developer.date} */}
