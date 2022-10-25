@@ -32,7 +32,7 @@ const MyProfiles = () => {
         let newdev = json.parse(json.stringify(profile));
         for(let index =0;index<newdev.length;index++){
             const element = newdev[index];
-            if(element._id==id){
+            if(element._id===id){
                 newdev[index].name = name;
                 newdev[index].email = email;
                 newdev[index].role = role;
@@ -56,7 +56,7 @@ const MyProfiles = () => {
         })
         const json = await response.json();
         console.log(json);
-        const newdev = profile.filter((dev) => { return dev._id != id });
+        const newdev = profile.filter((dev) => { return dev._id !== id });
         setprofile(newdev);
     }
     return (

@@ -4,6 +4,8 @@ const fetchuser = require('../Middleware/fetchuser');
 const {body,validationResult} = require('express-validator')
 const Element = require("../Models/DevProfile")
 const app = express();
+
+// Route 1 : 
 Router.get('/getalldevelopers',fetchuser,async(req,res)=>{
     try {
         const elements=await Element.find()
@@ -15,7 +17,7 @@ Router.get('/getalldevelopers',fetchuser,async(req,res)=>{
 
 
 
-
+// Router 2 : 
 Router.post('/adddevelopers',fetchuser, async (req, res) => {
 
         try {
@@ -40,7 +42,7 @@ Router.post('/adddevelopers',fetchuser, async (req, res) => {
     })
 
 // ------------------------------------------------------
-// Route4 :  get the user profile of the logged in user.
+// Route3 :  get the user profile of the logged in user.
 Router.get('/fetchuserprofile',fetchuser,async(req,res)=>{
     try {
         const userprofile = await Element.find({user:req.user.id});
@@ -51,7 +53,7 @@ Router.get('/fetchuserprofile',fetchuser,async(req,res)=>{
 })
 
 
-// update the profile . 
+//Route 4 :  update the profile . 
 Router.put('/update/:id',fetchuser,async(req,res)=>{
     const {name,email,role,contactNum,description,github,linkedin,resumelink,achievements,date} = req.body;
     // create a new developer object. 
@@ -80,7 +82,7 @@ Router.put('/update/:id',fetchuser,async(req,res)=>{
 })
 
 
-
+// Route 5 : 
 // router delete an existing developer using DELETE: api/dev/delete/:id
 Router.delete('/delete/:id',fetchuser,async(req,res)=>{
     try {
