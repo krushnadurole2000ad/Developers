@@ -10,15 +10,29 @@ const DashBoard = () => {
   useEffect(() => {
     getuser();
   }, [])
-
-  const UpdateUser = async (name, email) => {
+  
+  // const UpdateUser = async (name, email) => {
+  //   const response = await fetch('http://localhost:5000/api/v1/updateprofile', {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'authtoken': localStorage.getItem('authtoken')
+  //     },
+  //     body: JSON.stringify({ name, email })
+  //   })
+  //   const json = await response.json();
+  //   let newuser = JSON.parse(JSON.stringify(json));
+  //   newuser.name = name;
+  //   setuser(newuser);
+  // }
+  const UpdateUser = async (name) => {
     const response = await fetch('http://localhost:5000/api/v1/updateprofile', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
         'authtoken': localStorage.getItem('authtoken')
       },
-      body: JSON.stringify({ name, email })
+      body: JSON.stringify({ name })
     })
     const json = await response.json();
     let newuser = JSON.parse(JSON.stringify(json));
@@ -40,13 +54,25 @@ const DashBoard = () => {
     setuser(json);
   }
 
+  // const updateuser = (currentuser) => {
+  //   ref.current.click();
+  //   setuser({ id: currentuser._id, ename: currentuser.name, eemail: currentuser.email })
+  // }
   const updateuser = (currentuser) => {
     ref.current.click();
-    setuser({ id: currentuser._id, ename: currentuser.name, eemail: currentuser.email })
+    setuser({ id: currentuser._id, ename: currentuser.name })
   }
 
+  // const handleclick = (e) => {
+  //   UpdateUser(user.id, user.ename, user.eemail);
+  //   refclose.current.click();
+  // }
+  // const handleclick = (e) => {
+  //   UpdateUser(user.id,user.eemail);
+  //   refclose.current.click();
+  // }
   const handleclick = (e) => {
-    UpdateUser(user.id, user.ename, user.eemail);
+    UpdateUser(user.ename);
     refclose.current.click();
   }
 
@@ -82,10 +108,10 @@ const DashBoard = () => {
                   <label htmlFor="name" className="form-label">Name</label>
                   <input type="text" className="form-control" id="ename" name='ename' value={user.ename} aria-describedby="emailHelp" onChange={onChange} minLength={5} required />
                 </div>
-                <div className="mb-3">
+                {/* <div className="mb-3">
                   <label htmlFor="email" className="form-label"> Email</label>
                   <input type="email" className="form-control" id="eemail" name='eemail' value={user.eemail} onChange={onChange} minLength={5} required />
-                </div>
+                </div> */}
               </form>
 
             </div>
