@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { json, useNavigate } from 'react-router-dom';
-import './SignUp.css'
+import '../Auth/SignUp.css'
 const SignUp = () => {
   const [credentials, setcredientials] = useState({ name: "", email: "", password: "", cpassword: "" });
   let navigate = useNavigate();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
-import Developer from '../components/Developer'
-import UserProfile from './UserProfile';
+import Developer from '../components/Developer/Developer'
+import UserProfile from '../components/UserProfile/UserProfile';
 const DashBoard = () => {
   // it is my profile section . 
   const [user, setuser] = useState({ id:"",ename: "", eemail: "" });

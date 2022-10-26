@@ -108,4 +108,14 @@ router.delete('/delete/:id', fetchuser, async (req, res) => {
     }
 })
 
+router.get('/getmyreq',async (req,res)=>{
+    try {
+        const requirements = await Element.find({postedby:req.user.id});
+        res.json(requirements);
+    } catch (error) {
+        res.status(401).send("Something went wrong");
+    }
+
+})
+
 module.exports = router;

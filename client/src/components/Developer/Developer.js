@@ -1,7 +1,7 @@
 import React, { useContext } from 'react'
 import formatDistance from 'date-fns/formatDistance'
-import DevContext from '../context/developers/DevContext';
-import './Developer.css'
+import DevContext from '../../context/developers/DevContext';
+import '../Developer/Developer.css'
 const Developer = (props) => {
     const { developer, updatedev } = props;
     const context = DevContext;

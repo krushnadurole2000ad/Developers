@@ -1,6 +1,6 @@
 import React, { useContext, useState } from 'react'
-import DevContext from '../context/developers/DevContext'
-import './AddProf.css'
+import DevContext from '../../context/developers/DevContext'
+import '../Developer/AddDevProf.css'
 const AddProf = () => {
 
     const context = useContext(DevContext);

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import Developer from './Developer';
+import Developer from '../Developer/Developer';
 
 const MyProfiles = () => {
     const [profile, setprofile] = useState([]);

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
-import DevContext from '../context/developers/DevContext';
+import DevContext from '../../context/developers/DevContext';
 import Developer from './Developer';
-import './Alldevelopers.css'
+import '../Developer/Alldevelopers.css'
 const Alldevelopers = () => {
   const context = useContext(DevContext);
   const { getdev, devs } = context;

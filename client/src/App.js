@@ -1,15 +1,15 @@
 import './App.css';
 import { Routes,Route,BrowserRouter } from 'react-router-dom';
-import AboutUs from './components/AboutUs';
-import Alldevelopers from './components/Alldevelopers';
-import Login from './components/Login';
+import AboutUs from './components/AboutUs/AboutUs';
+import Alldevelopers from './components/Developer/Alldevelopers';
+import Login from './components/Auth/Login';
 import Navbar from './components/Navbar';
 import DevState from './context/developers/DevState';
 import Alert from './components/Alert';
 import DashBoard from './components/DashBoard';
-import SignUp from './components/SignUp';
-import AddProf from './components/AddProf';
-import MyProfiles from './components/MyProfiles';
+import SignUp from './components/Auth/SignUp';
+import AddProf from './components/Developer/AddDevProf';
+import MyProfiles from './components/Developer/MyDevProfiles';
 function App() {
   return (
     <>
