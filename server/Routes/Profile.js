@@ -3,6 +3,7 @@ const Router=express.Router();
 const fetchuser = require('../Middleware/fetchuser');
 const {body,validationResult} = require('express-validator')
 const Element = require("../Models/DevProfile")
+const User = require('../Models/User')
 const app = express();
 
 // Route 1 : get all the developers profile
@@ -42,11 +43,12 @@ Router.post('/adddevelopers',fetchuser, async (req, res) => {
     })
 
 // ------------------------------------------------------
-// Route3 :  get the user profiles of the logged in user.
+// Route3 :  get the Developer profiles of the logged in user.
 Router.get('/fetchuserprofile',fetchuser,async(req,res)=>{
     try {
-        const userprofile = await Element.find({user:req.user.id});
-        res.json(userprofile);
+        const mydevprofile = await Element.find({user:req.user.id});
+        // console.log(mydevprofile);
+        res.json(mydevprofile);
     } catch (error) {
         res.status(401).send("Something went Wrong")
     }
@@ -54,7 +56,7 @@ Router.get('/fetchuserprofile',fetchuser,async(req,res)=>{
 
 
 //Route 4 :  update the profile . 
-Router.put('/update/:id',fetchuser,async(req,res)=>{
+Router.put('/updateprofile/:id',fetchuser,async(req,res)=>{
     const {name,email,role,contactNum,description,github,linkedin,resumelink,achievements,date} = req.body;
     // create a new developer object. 
     const newdev = {};
@@ -70,7 +72,7 @@ Router.put('/update/:id',fetchuser,async(req,res)=>{
     if(date){newdev.date=date};  
 
     // update the developer. 
-    let developer = await Element.find(req.params.id);
+    let developer = await Element.findById(req.params.id);
     if(!developer){
         return res.status(400).send("Not Found");
     }

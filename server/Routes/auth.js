@@ -120,7 +120,7 @@ router.put('/updateprofile',fetchuser,async(req,res)=>{
         if(name){newuser.name=name};
         let user = await User.findById(req.user.id);
         if(!user){
-            return res.status(405).send('Internal server error')
+            return res.status(405).send('User Not Found')
         }
         user = await User.findByIdAndUpdate(req.user.id,{$set:newuser},{new:true});
         res.json(user);
