@@ -35,14 +35,70 @@ const DevState = (props) => {
     }
     // delete developer
     // update developer
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Routes handling for the requirements entity. 
+    const reqintial = [];
+    const [reqs,setreqs] = useState(reqintial)
+    const getreq = async () => {
+        const response = await fetch('http://localhost:5000/api/v1/allreq', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'authtoken': localStorage.getItem('authtoken')
+          }
+        })
+        const json = await response.json();
+        console.log(json);
+        setreqs(json);
+      }
+
+      const addrequire = async (Title,Technologies,description,deadline,email,contactNum) =>{
+        const response = await fetch(`http://localhost:5000/api/v1/addreq`,{
+            method:'POST',
+            headers:{
+                'Content-Type': 'application/json'
+            },
+            body:JSON.stringify({Title,Technologies,description,deadline,email,contactNum})
+        })
+        const req = await response.json();
+        console.log("Adding a  developer profile. ");
+        setreqs(reqs.concat(req));
+    }
+
+    
     return (
         <div>
-            <DevContext.Provider value = {{getdev,devs,addprof}}>
+            <DevContext.Provider value = {{getdev,devs,addprof,getreq,addrequire}}>
                 {props.children}
             </DevContext.Provider>
         </div>
     )
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 export default DevState;
 

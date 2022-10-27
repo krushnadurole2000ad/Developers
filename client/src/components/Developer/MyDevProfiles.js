@@ -20,7 +20,7 @@ const MyProfiles = () => {
         setprofile(json);
     }
     const updateprofile = async(id,name,email,role,contactNum,description,github,linkedin,resumelink,achievements)=>{
-        const response = await fetch('http://localhost:5000/api/v2/updateprofile',{
+        const response = await fetch('http://localhost:5000/api/v1/updateprofile',{
             method:'PUT' ,
             headers: {
                 'Content-Type': 'application/json',
@@ -47,7 +47,7 @@ const MyProfiles = () => {
         setprofile(profile);
     }
     const deleteprofile = async (id) => {
-        const response = await fetch(`http://localhost:5000/api/v2/delete/${id}`, {
+        const response = await fetch(`http://localhost:5000/api/v1/delete/${id}`, {
             method: 'DELETE',
             headers: {
                 'Content-Type': 'application/json',

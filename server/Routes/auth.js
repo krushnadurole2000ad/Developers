@@ -111,12 +111,13 @@ router.get('/veryhelpful',fetchuser,async(req,res)=>{
 }
 });
 
+
+// router 4 : update the user profile
 router.put('/updateprofile',fetchuser,async(req,res)=>{
     try {
-        const {name,email} = req.body;
+        const {name} = req.body;
         const newuser = {};
         if(name){newuser.name=name};
-        if(email){newuser.email = email};
         let user = await User.findById(req.user.id);
         if(!user){
             return res.status(405).send('Internal server error')

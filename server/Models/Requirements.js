@@ -1,17 +1,17 @@
 const mongoose = require('mongoose')
 const { Schema } = mongoose;
 const ReqSchema = new mongoose.Schema({
-    postedby:{
-        type:mongoose.Schema.Types.ObjectId,
-        required:true
-    },
+    user: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'user'
+      },
     Title: {
         type: String,
         required: true
     },
     Technologies: {
         type: String,
-        required: true
+        // required: true
     },
     date: {
         type: Date,
@@ -19,7 +19,7 @@ const ReqSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        required: true
+        // required: true
     },
     deadline:{
         type:String
@@ -27,11 +27,11 @@ const ReqSchema = new mongoose.Schema({
     email: {
         type: String,
         required: true,
-        unique: true
+        // unique: true
     },
     contactNum:{
         type:String,
-        required:true
+        // required:true
     } 
 })
 const Require = mongoose.model('Require', ReqSchema);

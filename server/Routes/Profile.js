@@ -5,7 +5,7 @@ const {body,validationResult} = require('express-validator')
 const Element = require("../Models/DevProfile")
 const app = express();
 
-// Route 1 : 
+// Route 1 : get all the developers profile
 Router.get('/getalldevelopers',fetchuser,async(req,res)=>{
     try {
         const elements=await Element.find()
@@ -17,7 +17,7 @@ Router.get('/getalldevelopers',fetchuser,async(req,res)=>{
 
 
 
-// Router 2 : 
+// Router 2 : add the developer profile. 
 Router.post('/adddevelopers',fetchuser, async (req, res) => {
 
         try {
@@ -42,7 +42,7 @@ Router.post('/adddevelopers',fetchuser, async (req, res) => {
     })
 
 // ------------------------------------------------------
-// Route3 :  get the user profile of the logged in user.
+// Route3 :  get the user profiles of the logged in user.
 Router.get('/fetchuserprofile',fetchuser,async(req,res)=>{
     try {
         const userprofile = await Element.find({user:req.user.id});

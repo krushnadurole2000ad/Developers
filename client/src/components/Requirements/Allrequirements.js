@@ -1,20 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
 // component to present all the avaialble requirements. 
 const Allrequirements = () => {
-  const [req,setreq] = useState({postedby:"", Title:"", Technologies:"", description:"", deadline:"", email:"", contactNum:""})
-  const getreq = async()=>{
-    const response = await fetch('http://localhost:5000/api/v1/allreq',{
-      method:'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'authtoken': localStorage.getItem('authtoken')
-      }
-    })
-    const json = await response.json();
-    console.log(json);
-    setreq(json);
-  }
+  const [reqs, setreqs] = useState({ postedby: "", Title: "", Technologies: "", description: "", deadline: "", email: "", contactNum: "" })
+  
+  useEffect(() => {
+    getreq();
+  }, [])
   return (
     <div>
       <h1>Allrequirements</h1>
