@@ -98,7 +98,6 @@ router.post('/login',[
 
 // --------------------------------------------------------------------------------------------------------------------------------
 // ROUTE3:Get logged in user detail using POST:api/auth/getuser.Login required
-
 router.get('/veryhelpful',fetchuser,async(req,res)=>{
     try {
      let userid=req.user.id;

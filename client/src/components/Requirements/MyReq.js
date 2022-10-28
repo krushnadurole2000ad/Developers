@@ -1,7 +1,5 @@
-import React from 'react'
-import Require from '../../../../server/Models/Requirements';
-import Requirement from './Requirement';
-
+import React,{useEffect,useState} from 'react'
+import Requirement from "../Requirements/Requirement"
 const MyReq = () => {
     const [reqs,setreqs] = useState([]);
     useEffect(() => {
@@ -20,7 +18,7 @@ const MyReq = () => {
         console.log(json);
         setreqs(json);
     }
-    const updatemyreq = async(Title,Technologies,description,deadline,email,contactNum)=>{
+    const updatemyreq = async(id , Title,Technologies,description,deadline,email,contactNum)=>{
         const response = await fetch('',{
           method:'PUT' ,
             headers: {
@@ -33,7 +31,7 @@ const MyReq = () => {
         let newmyreq  = JSON.parse(JSON.stringify(json));
         for(let index = 0;index<newmyreq.length();index++){
           const element = newmyreq[index];
-          if(element._id==id){
+          if(element._id===id){
             newmyreq[index].Title = Title;
             newmyreq[index].Technologies = Technologies;
             newmyreq[index].description = description;
@@ -55,7 +53,8 @@ const MyReq = () => {
       })
       const json = await response.json();
       console.log(json);
-      const newmyreq = Require.filter((req)=>{return req._id!=id});
+      const newmyreq = reqs.filter((req)=>{return req._id!==id});
+      setreqs(newmyreq)
     }
 
   return (
@@ -63,7 +62,7 @@ const MyReq = () => {
       <h1>My Uploaded Requirements</h1>
       {
         reqs.map((req)=>{
-          return <Require key={req._id} requirement = {req} updatemyreq = {updatemyreq} deletemyreq = {deletemyreq}/>
+          return <Requirement key={req._id} requirement = {req} updatemyreq = {updatemyreq} deletemyreq = {deletemyreq}/>
         })
       }
     </div>

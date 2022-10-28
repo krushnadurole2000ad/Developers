@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react'
-
+import React, { useEffect,useState } from 'react'
+const context = require('../../context/developers/DevContext')
 // component to present all the avaialble requirements. 
 const Allrequirements = () => {
   const [reqs, setreqs] = useState({ postedby: "", Title: "", Technologies: "", description: "", deadline: "", email: "", contactNum: "" })
-  
+  const {getreq} = context;
   useEffect(() => {
     getreq();
   }, [])

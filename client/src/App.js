@@ -10,6 +10,9 @@ import DashBoard from './components/DashBoard';
 import SignUp from './components/Auth/SignUp';
 import AddProf from './components/Developer/AddDevProf';
 import MyProfiles from './components/Developer/MyDevProfiles';
+import AddRequirement from './components/Requirements/AddRequirement';
+import MyReq from './components/Requirements/MyReq';
+import Allrequirements from './components/Requirements/Allrequirements';
 function App() {
   return (
     <>
@@ -27,6 +30,10 @@ function App() {
               <Route exact path = "/aboutus"element={<AboutUs/>}/>
               <Route exact path = "/adddprof" element ={<AddProf/>}/>
               <Route exact path = "/Myprofile" element ={<MyProfiles/>}/>
+              
+              <Route exact path='/addreq' element={<AddRequirement/>}/>
+              <Route exact path='/myreq' element={<MyReq/>}/>
+              <Route exact path='/allreq' element={<Allrequirements/>}/>
             </Routes>
           </div>
         </BrowserRouter>

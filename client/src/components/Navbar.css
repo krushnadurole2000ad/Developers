@@ -9,12 +9,42 @@
         height: auto;
         width:160px;  
         font-family: 'Zen Antique', serif;
+        font-size: small;
+    }
+    .Hello{
+        margin-bottom: 7em;
+        position:relative;
+    }
+    .mennu{
+        position: relative;
     }
 }
+.panel {
+    border: 0;
+    margin-bottom: 0;
+  }
+  
+  .text {
+    margin-bottom: 20px;
+    padding: 15px;
 
+  }
 .button{
     font-family: 'Roboto Serif', serif;
 }
 .toggle{
     margin: 4px;
+}
+
+.Hello{
+    display:flex;
+    width: auto;
+    margin-bottom: 5em;
+}
+
+.name{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    margin-bottom: 5em;
 }

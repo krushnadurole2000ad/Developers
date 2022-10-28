@@ -4,26 +4,77 @@ import "./Navbar.css"
 const Navbar = () => {
     return (
         <>
-            <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-                <div className="container-fluid">
-                    <Link className="navbar-brand" to="/">Developer </Link>
-                    <button className="navbar-toggler toggle" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span className="navbar-toggler-icon "></span>
+
+            {/* <!-- Large button groups (default and split) --> */}
+           <div className='Hello'>
+           <div class="btn-group name">
+                <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    Developer
+                </button>
+                <ul class="dropdown-menu mennu">
+                    <Link className="btn btn-primary mx-1 button" to="/">Developer </Link>
+                    <Link className="btn btn-primary mx-1 button" to="/alldevprof" role="button">All developers</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/adddprof" role="button">Add Developer</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> Profile</Link>  </ul>
+            </div>
+            <div class="btn-group name ">
+                <button class="btn btn-secondary btn-lg dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                    DashBoard
+                </button>
+                <ul class="dropdown-menu mennu ">
+                    <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>
+            </div>
+            <div class="btn-group name">
+                <button class="btn btn-secondary btn-lg dropdown-toggle"data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                    Require
+                </button>
+                <ul class="dropdown-menu mennu">
+                    <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>
+            </div>
+           </div>
+
+            {/* <div class=" dropdown row Hello btn-group">
+               
+                <div className="dropdown name">
+                    <button class="btn Hello btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Third
                     </button>
-                    <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                         <form className="d-flex" role="search">
-                            <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/alldevprof" role="button">All developers</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/adddprof" role="button">Add Developer Profile</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> Profile</Link>
-                            <span><button className="btn btn-primary mx-1 button">Log Out</button></span>
-                        </form> : 
-                    </div>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <Link className="nbtn btn-primary mx-1 button" to="/">Developer </Link>
+                        <Link className="btn btn-primary mx-1 button" to="/alldevprof" role="button">All developers</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/adddprof" role="button">Add Developer Profile</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> Profile</Link>
+                    </ul>
                 </div>
-            </nav>
+                <div className="dropdown name">
+                    <button class="btn Hello btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Third
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                        <Link className="nbtn btn-primary mx-1 button" to="/">Developer </Link>
+                        <Link className="btn btn-primary mx-1 button" to="/alldevprof" role="button">All developers</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/adddprof" role="button">Add Developer Profile</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> Profile</Link>
+                    </ul>
+                </div>
+                <div className="dropdown name">
+                    <button class="btn Hello btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" aria-expanded="false">
+                        Third
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton3">
+                    <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
+                        <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>
+                    </ul>
+                </div>
+            </div> */}
         </>
     )
 }
