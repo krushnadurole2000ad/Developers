@@ -25,18 +25,7 @@ router.get('/getallrequire', fetchuser, async (req, res) => {
 })
 // route1 : to create a requirements : add a requirements 
 // using post api : "/api/v1/addrequire"
-router.post('/addrequire', fetchuser, [
-    body('title', 'Enter the suitable title'),
-    body('technologies', 'Enter the technologies required '),
-    body('description', 'Enter the description '),
-    body('email', 'Enter the valid email')
-], async (req, res) => {
-    let success = 0;
-    const errors = validationResult(req);
-    if (!errors.isEmpty()) {
-        success = false;
-        return res.status(400).json({ success, errors: errors.array() });
-    }
+router.post('/addrequire', fetchuser, async (req, res) => {
     try {
         const { Title, Technologies, description, deadline, email, contactNum } = req.body;
 

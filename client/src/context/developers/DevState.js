@@ -5,6 +5,7 @@ import DevContext from "./DevContext";
 const host = process.env.HOST;
 
 const DevState = (props) => {
+
     const Devintial = [];
     const [devs,setdevs]=useState(Devintial);
     // function to fetch all the developers from the database.
@@ -52,7 +53,7 @@ const DevState = (props) => {
     const reqintial = [];
     const [reqs,setreqs] = useState(reqintial)
     const getreq = async () => {
-        const response = await fetch('http://localhost:5000/api/v1/allreq', {
+        const response = await fetch('http://localhost:5000/api/v1/getallrequire', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -65,22 +66,24 @@ const DevState = (props) => {
       }
 
       const addrequire = async (Title,Technologies,description,deadline,email,contactNum) =>{
-        const response = await fetch(`http://localhost:5000/api/v1/addreq`,{
+        const response = await fetch(`http://localhost:5000/api/v1/addrequire`,{
             method:'POST',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authtoken': localStorage.getItem('authtoken')
+                
             },
             body:JSON.stringify({Title,Technologies,description,deadline,email,contactNum})
         })
         const req = await response.json();
-        console.log("Adding a  developer profile. ");
+        console.log("Adding a  Requirement profile");
         setreqs(reqs.concat(req));
     }
 
     
     return (
         <div>
-            <DevContext.Provider value = {{getdev,devs,addprof,getreq,addrequire}}>
+            <DevContext.Provider value = {{getdev,devs,addprof,getreq,addrequire,reqs}}>
                 {props.children}
             </DevContext.Provider>
         </div>

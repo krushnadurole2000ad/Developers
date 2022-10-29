@@ -31,9 +31,9 @@ function App() {
               <Route exact path = "/adddprof" element ={<AddProf/>}/>
               <Route exact path = "/Myprofile" element ={<MyProfiles/>}/>
               
-              <Route exact path='/addreq' element={<AddRequirement/>}/>
-              <Route exact path='/myreq' element={<MyReq/>}/>
-              <Route exact path='/allreq' element={<Allrequirements/>}/>
+              <Route exact path="/addreq" element={<AddRequirement/>}/>
+              <Route exact path="/myreq" element={<MyReq/>}/>
+              <Route exact path="/allreq" element={<Allrequirements/>}/>
             </Routes>
           </div>
         </BrowserRouter>

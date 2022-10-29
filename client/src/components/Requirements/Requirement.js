@@ -3,19 +3,19 @@ import React from 'react'
 // component to propagate the requirments details. 
 const Requirement = (props) => {
 
-  const {Req} = props;
+  const {requirement} = props;
 
   return (
     <div>
       <h1>Requirement</h1>
-      <h3>{Req.Title}</h3>
-      <p>{Req.Technologies}</p>
-      <p>{Req.description}</p>
-      <p>{Req.deadline}</p>
-      <p>{Req.email}</p>
-      <p>{Req.contactNum}</p>
-      <p>{Req.postedby}</p>
-      <p>{Req.date}</p>
+      <h3>{requirement.Title}</h3>
+      <p>{requirement.Technologies}</p>
+      <p>{requirement.description}</p>
+      <p>{requirement.deadline}</p>
+      <p>{requirement.email}</p>
+      <p>{requirement.contactNum}</p>
+      <p>{requirement.postedby}</p>
+      <p>{requirement.date}</p>
       
     </div>
   )

@@ -32,10 +32,10 @@ const Navbar = () => {
                     Require
                 </button>
                 <ul class="dropdown-menu mennu">
-                    <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
-                    <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>
-                    <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
-                    <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>
+                    <Link className="btn btn-primary mx-1 button" to="/addreq" role="button">Add  Requirement</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/myreq" role="button">Get My requirement</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/allreq" role="button">Get all Requirement</Link>
+                    <Link className="btn btn-primary mx-1 button" to="/" role="button">DashBoard</Link>  </ul>
             </div>
            </div>
 

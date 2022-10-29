@@ -7,7 +7,7 @@ const ReqSchema = new mongoose.Schema({
       },
     Title: {
         type: String,
-        required: true
+        // required: true
     },
     Technologies: {
         type: String,
@@ -26,7 +26,7 @@ const ReqSchema = new mongoose.Schema({
     },
     email: {
         type: String,
-        required: true,
+        // required: true,
         // unique: true
     },
     contactNum:{

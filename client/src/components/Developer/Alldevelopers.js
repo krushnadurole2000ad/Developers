@@ -1,11 +1,9 @@
 import React, { useContext, useEffect, useState } from 'react'
-import DevContext from '../../context/developers/DevContext';
+import context from '../../context/developers/DevContext';
 import Developer from './Developer';
 import '../Developer/Alldevelopers.css'
 const Alldevelopers = () => {
-  const context = useContext(DevContext);
-  const { getdev, devs } = context;
-  // const [dev,setdev] = useState();
+  const { getdev, devs } = useContext(context);
 
   useEffect(() => {
     getdev();
