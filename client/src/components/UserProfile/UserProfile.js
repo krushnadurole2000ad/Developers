@@ -15,6 +15,7 @@ const UserProfile = (props) => {
                         <div className="cardj-body">
                             <img src="https://www.kindpng.com/picc/m/495-4952535_create-digital-profile-icon-blue-user-profile-icon.png" class="card-img-top" alt="..." />
                             <div>{user.name}</div>
+                            <div>{user.email}</div>
                             <div></div>
                             <i className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateuser(user) }}></i>
                         </div>

@@ -26,7 +26,9 @@ const DevState = (props) => {
         const response = await fetch(`http://localhost:5000/api/v1/adddevelopers`,{
             method:'POST',
             headers:{
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'authtoken':localStorage.getItem('authtoken')
+
             },
             body:JSON.stringify({name,email,role,contactNum,description,github,linkedin,resumelink,achievements})
         })
