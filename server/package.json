@@ -1,13 +1,9 @@
 {
-  "name": "server",
+  "name": "Developer",
   "version": "1.0.0",
   "description": "its developer application",
-  "main": "index.js",
   "scripts": {
-    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon server/index",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon server/index",
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seeder": "node server/Utils/seeder.js"
+    "start": "node index.js"
   },
   "author": "krushna Durole",
   "license": "ISC",
@@ -19,6 +15,28 @@
     "express-validator": "^6.14.2",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^6.6.2"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "engines": {
+    "node": "14.17.6",
+    "npm": "6.14.15"
   },
   "devDependencies": {
     "nodemon": "^2.0.20"

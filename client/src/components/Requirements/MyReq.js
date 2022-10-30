@@ -7,7 +7,7 @@ const MyReq = () => {
     }, [])
     
     const getmyreq = async()=>{
-        const response = await fetch('http://localhost:5000/api/v1/getmyreq',{
+        const response = await fetch('http://developerrvit.onrender.com/api/v1/getmyreq',{
             method:'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ const MyReq = () => {
         setreqs(reqs);
     }
     const deletemyreq = async(id)=>{
-      const response = await fetch('http://localhost:5000/api/v1/',{
+      const response = await fetch('http://developerrvit.onrender.com/api/v1/deletemyreq',{
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json',
