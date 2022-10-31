@@ -10,7 +10,7 @@ const DevState = (props) => {
     const [devs,setdevs]=useState(Devintial);
     // function to fetch all the developers from the database.
     const getdev = async () => {
-        const response = await fetch('http://developerrvit.onrender.com/api/v1/getalldevelopers', {
+        const response = await fetch('https://developerrvit.onrender.com/api/v1/getalldevelopers', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
@@ -23,7 +23,7 @@ const DevState = (props) => {
     }
     // add developer
     const addprof = async (name,email,role,contactNum,description,github,linkedin,resumelink,achievements) =>{
-        const response = await fetch(`http://developerrvit.onrender.com/api/v1/adddevelopers`,{
+        const response = await fetch(`https://developerrvit.onrender.com/api/v1/adddevelopers`,{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ const DevState = (props) => {
     const reqintial = [];
     const [reqs,setreqs] = useState(reqintial)
     const getreq = async () => {
-        const response = await fetch('http://developerrvit.onrender.com/api/v1/getallrequire', {
+        const response = await fetch('https://developerrvit.onrender.com/api/v1/getallrequire', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -68,7 +68,7 @@ const DevState = (props) => {
       }
 
       const addrequire = async (Title,Technologies,description,deadline,email,contactNum) =>{
-        const response = await fetch(`http://developerrvit.onrender.com/api/v1/addrequire`,{
+        const response = await fetch(`https://developerrvit.onrender.com/api/v1/addrequire`,{
             method:'POST',
             headers:{
                 'Content-Type': 'application/json',

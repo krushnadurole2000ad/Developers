@@ -26,7 +26,7 @@ const DashBoard = () => {
   //   setuser(newuser);
   // }
   const UpdateUser = async (name) => {
-    const response = await fetch('http://localhost:5000/api/v1/updateprofile', {
+    const response = await fetch('https://developerrvit.onrender.com/api/v1/updateprofile', {
       method: 'PUT',
       headers: {
         'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ const DashBoard = () => {
   }
 
   const getuser = async () => {
-    const response = await fetch('http://localhost:5000/api/v1/veryhelpful', {
+    const response = await fetch('https://developerrvit.onrender.com/api/v1/veryhelpful', {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json',

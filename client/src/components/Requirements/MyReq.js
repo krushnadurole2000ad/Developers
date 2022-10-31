@@ -7,7 +7,7 @@ const MyReq = () => {
     }, [])
     
     const getmyreq = async()=>{
-        const response = await fetch('http://developerrvit.onrender.com/api/v1/getmyreq',{
+        const response = await fetch('https://developerrvit.onrender.com/api/v1/getmyreq',{
             method:'GET',
             headers: {
                 'Content-Type': 'application/json',
