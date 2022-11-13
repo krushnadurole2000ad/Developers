@@ -70,7 +70,7 @@ router.put('/updatereq/:id', fetchuser, async (req, res) => {
     if (!requirement) {
         return res.status(400).send("Not Found");
     }
-    if (requirement.user.toString() !== req.user.id) {
+    if (requirement.user.toString() !==req.user.id) {
         return res.status(401).send("Not allowed");
     }
     requirement = await Require.findByIdAndUpdate(req.params.id, { $set: newrequire }, { new: true })

@@ -7,7 +7,8 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, email, password } = credentials;
-    const response = await fetch('https://developerrvit.onrender.com/api/v1/signup', {
+    const response = await fetch('http://localhost:5000/api/v1/signup', {
+    // const response = await fetch('https://developerrvit.onrender.com/api/v1/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

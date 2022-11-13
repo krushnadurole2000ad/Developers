@@ -1,7 +1,10 @@
-import React, { useEffect } from 'react'
-
+import React, { useContext, useEffect } from 'react'
+import DevContext from '../../context/developers/DevContext'
+import Devcontext from '../../context/developers/DevContext'
 const UserProfile = (props) => {
     const { user , updateuser } = props
+    const context = useContext(DevContext)
+    const {deletenote} = context;
     useEffect(() => {
       console.log(user);
     }, [])
@@ -18,6 +21,7 @@ const UserProfile = (props) => {
                             <div>{user.email}</div>
                             <div></div>
                             <i className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateuser(user) }}></i>
+                            <i className="fa-solid fa-trash-can  mx-2" onClick={() => { deletenote(user._id); props.showAlert("Deleted successfully", "success"); }}></i>
                         </div>
                     </div>
                 </div>
