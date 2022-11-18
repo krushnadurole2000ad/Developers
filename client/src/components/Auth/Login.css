@@ -7,10 +7,20 @@
 
 button{
     background-color: rgb(185, 196, 214);
+    margin: 1em;
 }
 .ip{
     border-radius: 55em;
 }
 p{
     text-align: center;
+}
+
+.t{
+    text-align: center;
+}
+
+.tt{
+    display: flex;
+    flex-direction: column;
 }

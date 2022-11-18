@@ -55,8 +55,8 @@ const DevState = (props) => {
     const reqintial = [];
     const [reqs,setreqs] = useState(reqintial)
     const getreq = async () => {
-        // const response = await fetch('https://developerrvit.onrender.com/api/v1/getallrequire', {
-        const response = await fetch('http://localhost:5000/api/v1/getallrequire', {
+        const response = await fetch('https://developerrvit.onrender.com/api/v1/getallrequire', {
+        // const response = await fetch('http://localhost:5000/api/v1/getallrequire', {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',

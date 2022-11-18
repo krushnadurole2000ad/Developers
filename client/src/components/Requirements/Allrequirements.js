@@ -1,35 +1,35 @@
-import React, { useContext, useEffect,useRef,useState } from 'react'
+import React, { useContext, useEffect, useRef, useState } from 'react'
 import DevContext from '../../context/developers/DevContext';
-import  context  from '../../context/developers/DevContext'
-import  Requirement from "../Requirements/Requirement"; 
+import context from '../../context/developers/DevContext'
+import Requirement from "../Requirements/Requirement";
 // component to present all the avaialble requirements. 
 const Allrequirements = () => {
-  const context = useContext(DevContext);
-  const {getreq,reqs,UpdateReq} =context;
-  const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
-  useEffect(() => {
-    getreq();
-  }, [])
-  const ref = useRef(null);
-  const refclose = useRef(null);
-  const handleClick = ()=>{
-      UpdateReq(req.id,req.eTitle,req.eTechnologies,req.edescription,req.edeadline,req.eemail,req.econtactNum)
-      refclose.current.click();
-      console.log("updated");
+    const context = useContext(DevContext);
+    const { getreq, reqs, UpdateReq } = context;
+    const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
+    useEffect(() => {
+        getreq();
+    }, [])
+    const ref = useRef(null);
+    const refclose = useRef(null);
+    const handleClick = () => {
+        UpdateReq(req.id, req.eTitle, req.eTechnologies, req.edescription, req.edeadline, req.eemail, req.econtactNum)
+        refclose.current.click();
+        console.log("updated");
 
-  }
-  const onChange = (e)=>{
-      setreq({...req,[e.target.name]:e.target.value});
-  }
+    }
+    const onChange = (e) => {
+        setreq({ ...req, [e.target.name]: e.target.value });
+    }
 
-  const updatereq = (currentreq)=>{
-      ref.current.click();
-      setreq({id:currentreq._id,eTitle:currentreq.Title,eTechnologies:currentreq.Technologies,edescription:currentreq.description,edeadline:currentreq.deadline,eemail:currentreq.email,econtactNum:currentreq.contactNum})
-      console.log("updatreq")
-  }
-  return (
-    <div>
-      <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    const updatereq = (currentreq) => {
+        ref.current.click();
+        setreq({ id: currentreq._id, eTitle: currentreq.Title, eTechnologies: currentreq.Technologies, edescription: currentreq.description, edeadline: currentreq.deadline, eemail: currentreq.email, econtactNum: currentreq.contactNum })
+        console.log("updatreq")
+    }
+    return (
+        <div>
+            <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Launch demo modal
             </button>
 
@@ -69,15 +69,15 @@ const Allrequirements = () => {
                     </div>
                 </div>
             </div>
-      <h1>All Requirements</h1>
-      <div className="container mx-2">
-        {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
-      </div>
-        {reqs.map((req)=>{
-          return <Requirement key={req._id} requirement = {req} updatereq = {updatereq}/>
-        })}
-    </div>
-  )
+            <h1>All Requirements</h1>
+            <div className="container mx-2">
+                {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
+            </div>
+            {reqs.map((req) => {
+                return <Requirement key={req._id} requirement={req} updatereq={updatereq} />
+            })}
+        </div>
+    )
 }
 
 export default Allrequirements

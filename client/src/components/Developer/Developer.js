@@ -13,8 +13,7 @@ const Developer = (props) => {
 
     return (
         <div className="maindev">
-
-            <div class="card text-center">
+            <div className="maindev card  text-center">
                 <div className=" card-header   navbar-light na" >
                     {developer.role}
                 </div>

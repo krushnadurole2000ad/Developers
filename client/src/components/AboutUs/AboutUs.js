@@ -4,13 +4,13 @@ const AboutUs = () => {
   return (
     <div>
       <div className='container-1'>
-          <h3>Hello , I am krushna Durole</h3>
-          <p>I am student at vit pune , ENTC-2024. </p>
-          Reach Out to Me : 
-          <div><a href='https://github.com/krushnadurole'>Github</a> </div>
-          <div><a href='https://www.linkedin.com/in/krushna-durole-0357931b9/'>linkedin</a></div>
-          <div><a href="mailto:krushna.durole20@vit.edu">Email</a></div>
-          <div><a href=''>9322670429</a></div>
+        <h3>Hello , I am krushna Durole</h3>
+        <p>I am student at vit pune , ENTC-2024. </p>
+        Reach Out to Me :
+        <div><a href='https://github.com/krushnadurole'>Github</a> </div>
+        <div><a href='https://www.linkedin.com/in/krushna-durole-0357931b9/'>linkedin</a></div>
+        <div><a href="mailto:krushna.durole20@vit.edu">Email</a></div>
+        <div><a href=''>9322670429</a></div>
 
       </div>
       <div className='container-2'>

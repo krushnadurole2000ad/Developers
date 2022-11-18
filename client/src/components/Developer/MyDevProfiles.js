@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import Developer from '../Developer/Developer';
-
 const MyProfiles = () => {
     const [profile, setprofile] = useState([]);
     useEffect(() => {
@@ -61,7 +60,7 @@ const MyProfiles = () => {
     }
     return (
         <div>
-            <h1>My Developer Profiles : </h1>
+            <h1>My Developer Profiles</h1>
             {
                 profile.map((dev) => {
                     return <Developer key={dev._id} developer={dev} deleteprofile = {deleteprofile} updateprofile={updateprofile} />
