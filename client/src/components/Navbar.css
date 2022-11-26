@@ -3,8 +3,8 @@
         display: flex;
         flex-wrap: wrap;
     }
-    .button{
-        margin: 2px;
+    button{
+        margin: 1px;
         width: max-content;
         height: auto;
         width:160px;  
