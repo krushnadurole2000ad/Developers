@@ -66,3 +66,24 @@ i am free ryt now for project work.
 when the application is in developement use : 
 npm start command to start the frontend 
 and backend. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+look now developer part is almost done. 
+in developer all the developers are visible. 
+my developer profile are visible. 
+both are available to edit and make 
+changes according to the user's requirements.
+
+user can delete the user profile. 

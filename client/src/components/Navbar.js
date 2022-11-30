@@ -2,16 +2,24 @@ import React from 'react'
 import { Link, useLocation, useNavigate } from 'react-router-dom'
 import "./Navbar.css"
 const Navbar = () => {
+    const navigate = useNavigate();
+    const handleLogOut = () => {
+        if(localStorage.getItem('authtoken')){
+            localStorage.removeItem("authtoken")
+            navigate('/login')
+        }    
+    }
+    let location = useLocation();
     return (
         <>
 
-            <div>
+            <div className=''>
                 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
                     <div class="container-fluid">
                         <a class="navbar-brand " href="#">DEV_GRAM</a>
                     </div>
                 </nav>
-                <div className='Hello'>
+                <div className='Hello navi tvft'>
                     <div class="btn-group name">
                         <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Developer
@@ -24,17 +32,19 @@ const Navbar = () => {
                     </div>
                     <div class="btn-group name ">
                         <button class="btn btn-secondary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
-                            DashBoard
+                            Dashboard
                         </button>
                         <ul class="dropdown-menu mennu ">
-                            <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>
+                            {!localStorage.getItem('authtoken') ? <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
+                            :<button type="button" class="btn btn-warning" onClick={handleLogOut}> Log out</button>}
+                            {!localStorage.getItem('authtoken')  && 
+                                                        <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>}
                             <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
                             <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>
                     </div>
                     <div class="btn-group name">
                         <button class="btn btn-secondary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
-                            Require
+                            Requirements
                         </button>
                         <ul class="dropdown-menu mennu">
                             <Link className="btn btn-primary mx-1 button" to="/addreq" role="button">Add  Requirement</Link>
@@ -42,14 +52,8 @@ const Navbar = () => {
                             <Link className="btn btn-primary mx-1 button" to="/allreq" role="button">Get all Requirement</Link>
                             <Link className="btn btn-primary mx-1 button" to="/" role="button">DashBoard</Link>  </ul>
                     </div>
-                    <div>
-
-                    </div>
                 </div>
             </div>
-
-
-
         </>
     )
 }

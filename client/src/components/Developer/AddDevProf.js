@@ -1,8 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState , useEffect } from 'react'
 import DevContext from '../../context/developers/DevContext'
 import '../Developer/AddDevProf.css'
+import { useNavigate } from 'react-router-dom';
 const AddProf = () => {
-
+    const navigate = useNavigate();
+    useEffect(() => {
+        if (localStorage.getItem('authtoken')) {
+        }
+        else {
+          navigate('/login')
+        }
+      }, [])
+    
     const context = useContext(DevContext);
     const { addprof } = context;
     const [Dev, Setdev] = useState({ name: "", email: "", role: "", contactNum: "", description: "", github: "", linkedin: "", resumelink: "", achievements: "" });

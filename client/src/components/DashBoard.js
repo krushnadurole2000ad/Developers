@@ -2,29 +2,22 @@ import React, { useState, useEffect, useRef, useContext } from 'react'
 import Developer from '../components/Developer/Developer'
 import UserProfile from '../components/UserProfile/UserProfile';
 import DevContext from '../context/developers/DevContext';
+import { useNavigate } from 'react-router-dom';
 const DashBoard = () => {
   // it is my profile section . 
   const context = useContext(DevContext);
+  const navigate = useNavigate();
   // const {UpdateUser} = context;
   const [user, setuser] = useState({ id: "", ename: "", eemail: "" });
   useEffect(() => {
-    getuser();
+    if(localStorage.getItem('authtoken')){
+      getuser();
+    }else{
+      navigate('/login')
+    }
   }, [])
   
-  // const UpdateUser = async (name, email) => {
-  //   const response = await fetch('http://localhost:5000/api/v1/updateprofile', {
-  //     method: 'PUT',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'authtoken': localStorage.getItem('authtoken')
-  //     },
-  //     body: JSON.stringify({ name, email })
-  //   })
-  //   const json = await response.json();
-  //   let newuser = JSON.parse(JSON.stringify(json));
-  //   newuser.name = name;
-  //   setuser(newuser);
-  // }
+  
   const UpdateUser = async (name) => {
     const response = await fetch('https://developerrvit.onrender.com/api/v1/updateprofile', {
       method: 'PUT',
@@ -136,3 +129,27 @@ const DashBoard = () => {
 }
 
 export default DashBoard
+
+
+
+
+
+
+
+
+
+
+// const UpdateUser = async (name, email) => {
+  //   const response = await fetch('http://localhost:5000/api/v1/updateprofile', {
+  //     method: 'PUT',
+  //     headers: {
+  //       'Content-Type': 'application/json',
+  //       'authtoken': localStorage.getItem('authtoken')
+  //     },
+  //     body: JSON.stringify({ name, email })
+  //   })
+  //   const json = await response.json();
+  //   let newuser = JSON.parse(JSON.stringify(json));
+  //   newuser.name = name;
+  //   setuser(newuser);
+  // }

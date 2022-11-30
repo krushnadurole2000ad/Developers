@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { json, useNavigate } from 'react-router-dom'
 import '../Auth/Login.css'
-const Login = () => {
+const Login = (props) => {
 
   const [credentials, setcredientials] = useState({ email: "", password: "" });
   const navigate = useNavigate();
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     // const response = await fetch('http://localhost:5000/api/v1/login',{
@@ -17,20 +18,23 @@ const Login = () => {
     })
     const json = await response.json();
     console.log(json);
+
     if (json.success) {
       console.log("success")
       // save the auth token and redirect from here to home. 
       localStorage.setItem('authtoken', json.authtoken);
+      props.showAlert("Logged in successfully","success")
       navigate('/')
     } else {
       console.log("danger")
-
+      props.showAlert("Invalid Credientials","danger")
     }
-
   }
+
   const onchange = (e) => {
     setcredientials({ ...credentials, [e.target.name]: e.target.value })
   }
+
   return (
     <>
       <div className="container mt-3 t">

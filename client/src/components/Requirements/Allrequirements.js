@@ -2,14 +2,21 @@ import React, { useContext, useEffect, useRef, useState } from 'react'
 import DevContext from '../../context/developers/DevContext';
 import context from '../../context/developers/DevContext'
 import Requirement from "../Requirements/Requirement";
+import { useNavigate } from 'react-router-dom';
 // component to present all the avaialble requirements. 
 const Allrequirements = () => {
     const context = useContext(DevContext);
     const { getreq, reqs, UpdateReq } = context;
     const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
+    const navigate = useNavigate();
     useEffect(() => {
-        getreq();
-    }, [])
+        if (localStorage.getItem('authtoken')) {
+          getreq();
+        }
+        else {
+          navigate('/login')
+        }
+      }, [])
     const ref = useRef(null);
     const refclose = useRef(null);
     const handleClick = () => {

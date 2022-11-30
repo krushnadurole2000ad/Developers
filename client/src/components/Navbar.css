@@ -19,6 +19,12 @@
         position: relative;
     }
 }
+@media screen and (max-width:600px) {
+    .navi{
+        display: flex;
+        flex-direction: column;
+    }
+}
 .panel {
     border: 0;
     margin-bottom: 0;
@@ -48,3 +54,9 @@
     width: 100%;
     margin-bottom: 5em;
 }
+/* 
+.tvft{
+    position: relative;
+    top: 1cm;
+    width: 100%;
+} */

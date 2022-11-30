@@ -1,11 +1,17 @@
 import React,{useEffect,useState} from 'react'
 import Requirement from "../Requirements/Requirement"
+import { useNavigate } from 'react-router-dom';
 const MyReq = () => {
     const [reqs,setreqs] = useState([]);
+    const navigate = useNavigate();
     useEffect(() => {
-      getmyreq();
+      if (localStorage.getItem('authtoken')) {
+        getmyreq();
+      }
+      else {
+        navigate('/login')
+      }
     }, [])
-    
     const getmyreq = async()=>{
         const response = await fetch('https://developerrvit.onrender.com/api/v1/getmyreq',{
             method:'GET',

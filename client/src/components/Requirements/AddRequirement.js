@@ -1,12 +1,17 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState  , useEffect} from 'react'
 import DevContext from '../../context/developers/DevContext';
 // component to add the requirmenets. 
-
+import { useNavigate } from 'react-router-dom';
 const AddRequirement = () => {
-
+  const navigate = useNavigate();
   const context = useContext(DevContext);
   const [req,setreq] = useState({Title:"",Technologies:"",description:"",deadline:"",email:"",contactNum:"",postedby:""})
   const {addrequire} = context;
+  useEffect(() => {
+    if (!localStorage.getItem('authtoken')) {
+      navigate('/login')
+    }
+  }, [])
   const handleclick = (e)=>{
     e.preventDefault();
     addrequire(req.Title,req.Technologies,req.description,req.deadline,req.email,req.contactNum,req.postedby);

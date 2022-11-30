@@ -10,7 +10,7 @@ const AboutUs = () => {
         <div><a href='https://github.com/krushnadurole'>Github</a> </div>
         <div><a href='https://www.linkedin.com/in/krushna-durole-0357931b9/'>linkedin</a></div>
         <div><a href="mailto:krushna.durole20@vit.edu">Email</a></div>
-        <div><a href=''>9322670429</a></div>
+        <div><a href='#'>9322670429</a></div>
 
       </div>
       <div className='container-2'>
