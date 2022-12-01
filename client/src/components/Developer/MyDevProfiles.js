@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
-import DevContext from '../../context/developers/DevContext';
 import Developer from '../Developer/Developer';
 import { useNavigate } from 'react-router-dom';
 
@@ -66,19 +65,6 @@ const MyProfiles = (props) => {
         }
         setdevs(newdevs);
     }
-    // const deletedev = async (id) => {
-    //     const response = await fetch(`https://developerrvit.onrender.com/api/v1/delete/${id}`, {
-    //         method: 'DELETE',
-    //         headers: {
-    //             'Content-Type': 'application/json',
-    //             'authtoken': localStorage.getItem('authtoken')
-    //         },
-    //     });
-    //     const json = await response.json();
-    //     console.log(json);
-    //     const newdev = devs.filter((dev) => { return dev._id !== id });
-    //     setdevs(devs);
-    // }
     return (
         <div>
             <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
@@ -137,6 +123,19 @@ export default MyProfiles
 
 
 
+// const deletedev = async (id) => {
+//     const response = await fetch(`https://developerrvit.onrender.com/api/v1/delete/${id}`, {
+//         method: 'DELETE',
+//         headers: {
+//             'Content-Type': 'application/json',
+//             'authtoken': localStorage.getItem('authtoken')
+//         },
+//     });
+//     const json = await response.json();
+//     console.log(json);
+//     const newdev = devs.filter((dev) => { return dev._id !== id });
+//     setdevs(devs);
+// }
 
 
 

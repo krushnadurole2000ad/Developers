@@ -8,6 +8,8 @@ const DevState = (props) => {
 
     const Devintial = [];
     const [devs, setdevs] = useState(Devintial);
+    const [myreqs, setmyreqs] = useState([]);
+
     // function to fetch all the developers from the database.
     const getdev = async () => {
         const response = await fetch('https://developerrvit.onrender.com/api/v1/getalldevelopers', {
@@ -35,6 +37,8 @@ const DevState = (props) => {
         const dev = await response.json();
         console.log("Adding a  developer profile. ");
         setdevs(devs.concat(dev));
+        props.showAlert("Added Successfully","success");
+
     }
     // delete developer
     const deletedev = async (id) => {
@@ -49,6 +53,7 @@ const DevState = (props) => {
         console.log(json);
         const newdev = devs.filter((dev) => { return dev._id !== id });
         setdevs(newdev);
+        props.showAlert("Deleted Successfully","danger");
     }
     // update developer
     const updatedev = async (id,name,email,contactNum,description,github,linkedin) => {
@@ -75,6 +80,7 @@ const DevState = (props) => {
             }
         }
         setdevs(newdevs);
+        props.showAlert("Updated Successfully","success");
     }
 
 
@@ -143,11 +149,24 @@ const DevState = (props) => {
                 break;
             }
             setreqs(newreq);
-            console.log("setreqs : newreq")
         }
     }
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     // myrequirements : 
     const deletereq = async(id)=>{
         const response = await fetch(`https://developerrvit.onrender.com/api/v1/deletereq/${id}`,{
@@ -162,6 +181,8 @@ const DevState = (props) => {
         console.log(json);
         const newmyreq = reqs.filter((req)=>{return req._id!==id});
         setreqs(newmyreq)
+        setmyreqs(newmyreq)
+        // props.showAlert("Deleted Successfully","success");
       }
 
 
@@ -176,7 +197,7 @@ const DevState = (props) => {
         })
         const json = await response.json();
         console.log(json);
-        setreqs(json);
+        setmyreqs(json);
       }
       // update my requirements. 
     const updatemyreq = async (id, Title, Technologies, description, deadline, email, contactNum) => {
@@ -202,11 +223,13 @@ const DevState = (props) => {
         newmyreq[index].contactNum = contactNum;
       }
     }
-    setreqs(reqs);
+    setmyreqs(reqs);
   }
+
+  
     return (
         <div>
-            <DevContext.Provider value={{ getdev, devs, addprof, getreq, addrequire, reqs, UpdateReq, deletedev,updatedev,deletereq,getmyreq,updatemyreq}}>
+            <DevContext.Provider value={{ getdev, devs, addprof, getreq, addrequire, reqs, UpdateReq, deletedev,updatedev,deletereq,getmyreq,updatemyreq,setmyreqs,myreqs}}>
                 {props.children}
             </DevContext.Provider>
         </div>

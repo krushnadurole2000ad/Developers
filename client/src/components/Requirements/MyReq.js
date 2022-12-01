@@ -1,20 +1,17 @@
 import React, { useEffect, useRef, useState, useContext } from 'react'
 import Requirement from "../Requirements/Requirement"
+import DevContext from '../../context/developers/DevContext';
 import { useNavigate } from 'react-router-dom';
 const MyReq = (props) => {
   const ref = useRef(null);
   const refclose = useRef(null);
 
   const navigate = useNavigate();
-
-  const [reqs, setreqs] = useState([]);
+  const context = useContext(DevContext)
+  const { myreqs, setmyreqs, getmyreq } = context;
+  // const [reqs, setreqs] = useState([]);
   const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
-
   const [flag, setflag] = useState(true);
-
-  // const context = useContext(DevContext)
-  // const {getmyreq,updatemyreq} = context;
-
 
   useEffect(() => {
     if (localStorage.getItem('authtoken')) {
@@ -32,24 +29,12 @@ const MyReq = (props) => {
   const handleClick = () => {
     updatemyreq(req.id, req.eTitle, req.eTechnologies, req.edescription, req.edeadline, req.eemail, req.econtactNum)
     refclose.current.click();
-    props.showAlert("Updated Successfully","success");
+    props.showAlert("Updated Successfully", "success");
   }
   const onChange = (e) => {
     setreq({ ...req, [e.target.name]: e.target.value });
   }
 
-  const getmyreq = async () => {
-    const response = await fetch('https://developerrvit.onrender.com/api/v1/getmyreq', {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json',
-        'authtoken': localStorage.getItem('authtoken')
-      }
-    })
-    const json = await response.json();
-    console.log(json);
-    setreqs(json);
-  }
   const updatemyreq = async (id, Title, Technologies, description, deadline, email, contactNum) => {
     // localhost:5000/api/v1/updatereq/6360c04378854a0264692e1d
     const response = await fetch(`https://developerrvit.onrender.com/api/v1/updatereq/${id}`, {
@@ -61,7 +46,7 @@ const MyReq = (props) => {
       body: JSON.stringify({ Title, Technologies, description, deadline, email, contactNum })
     })
     const json = await response.json();
-    let newmyreq = JSON.parse(JSON.stringify(reqs));
+    let newmyreq = JSON.parse(JSON.stringify(myreqs));
     for (let index = 0; index < newmyreq.length; index++) {
       const element = newmyreq[index];
       if (element._id === id) {
@@ -74,7 +59,7 @@ const MyReq = (props) => {
         break;
       }
     }
-    setreqs(newmyreq);
+    setmyreqs(newmyreq);
   }
 
   return (
@@ -82,8 +67,6 @@ const MyReq = (props) => {
       <button type="button" ref={ref} className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
         Launch demo modal
       </button>
-
-
 
       <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div className="modal-dialog modal-dialog-centered">
@@ -107,10 +90,7 @@ const MyReq = (props) => {
                   <label htmlFor="tag" className="form-label">Technologies</label>
                   <input type="text" className="form-control" id="eTechnologies" name='eTechnologies' value={req.eTechnologies} onChange={onChange} />
                 </div>
-
-
               </form>
-
             </div>
             <div className="modal-footer">
               <button ref={refclose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -121,17 +101,16 @@ const MyReq = (props) => {
       </div>
       <h1>My Uploaded Requirements</h1>
       <div className="container mx-2">
-        {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
+        {myreqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
       </div>
       {
-        reqs.map((req) => {
+        myreqs.map((req) => {
           return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag={flag} />
         })
       }
     </div>
   )
 }
-
 export default MyReq
 
 
@@ -149,6 +128,18 @@ export default MyReq
 
 
 
+// const getmyreq = async () => {
+//   const response = await fetch('https://developerrvit.onrender.com/api/v1/getmyreq', {
+//     method: 'GET',
+//     headers: {
+//       'Content-Type': 'application/json',
+//       'authtoken': localStorage.getItem('authtoken')
+//     }
+//   })
+//   const json = await response.json();
+//   console.log(json);
+//   setreqs(json);
+// }
 
 
 
