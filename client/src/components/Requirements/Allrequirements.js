@@ -3,16 +3,24 @@ import DevContext from '../../context/developers/DevContext';
 import context from '../../context/developers/DevContext'
 import Requirement from "../Requirements/Requirement";
 import { useNavigate } from 'react-router-dom';
+import Spinner from '../Spinner';
 // component to present all the avaialble requirements. 
 const Allrequirements = (props) => {
+    const [loading,setloading] = useState([]);
     const context = useContext(DevContext);
     const { getreq, reqs, UpdateReq } = context;
     const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
-    const [flag ,setflag] = useState(false); 
+    const [flag ,setflag] = useState(true); 
     const navigate = useNavigate();
+    
     useEffect(() => {
         if (localStorage.getItem('authtoken')) {
           getreq();
+          setTimeout(() => {
+            if(reqs){
+                setloading(false);
+            }        }, 1000);
+            
         }
         else {
           navigate('/login')
@@ -75,10 +83,11 @@ const Allrequirements = (props) => {
                     </div>
                 </div>
             </div>
-            <h1>All Requirements</h1>
-            <div className="container mx-2">
+            {loading && <Spinner/>}
+            {!loading && <h1>All Requirements</h1>}
+            {!loading && <div className="container mx-2">
                 {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
-            </div>
+            </div>}
             {reqs.map((req) => {
                 return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag = {flag} />
             })}

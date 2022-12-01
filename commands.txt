@@ -146,3 +146,6 @@ keep it in one only.
 4. optimize the code.
 5. improve the code quality.
 6. make the date more precise =>day-date/month/year. 
+
+it is 4.35 : 
+6th point is done. 
