@@ -48,7 +48,7 @@
     margin-bottom: 5em;
 }
 
-.name{
+.name{ 
     display: flex;
     justify-content: space-around;
     width: 100%;

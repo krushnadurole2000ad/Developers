@@ -147,14 +147,72 @@ const DevState = (props) => {
         }
     }
 
+
+    // myrequirements : 
+    const deletereq = async(id)=>{
+        const response = await fetch(`https://developerrvit.onrender.com/api/v1/deletereq/${id}`,{
+          method: 'DELETE',
+          headers: {
+              'Content-Type': 'application/json',
+              'authtoken': localStorage.getItem('authtoken')
+          }
+          
+        })
+        const json = await response.json();
+        console.log(json);
+        const newmyreq = reqs.filter((req)=>{return req._id!==id});
+        setreqs(newmyreq)
+      }
+
+
+      //get my requirements ; 
+      const getmyreq = async () => {
+        const response = await fetch('https://developerrvit.onrender.com/api/v1/getmyreq', {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+            'authtoken': localStorage.getItem('authtoken')
+          }
+        })
+        const json = await response.json();
+        console.log(json);
+        setreqs(json);
+      }
+      // update my requirements. 
+    const updatemyreq = async (id, Title, Technologies, description, deadline, email, contactNum) => {
+    // localhost:5000/api/v1/updatereq/6360c04378854a0264692e1d
+    const response = await fetch(`https://developerrvit.onrender.com/api/v1/updatereq/${id}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+        'authtoken': localStorage.getItem('authtoken')
+      },
+      body: JSON.stringify({ Title, Technologies, description, deadline, email, contactNum })
+    })
+    const json = await response.json();
+    let newmyreq = JSON.parse(JSON.stringify(json));
+    for (let index = 0; index < newmyreq.length; index++) {
+      const element = newmyreq[index];
+      if (element._id === id) {
+        newmyreq[index].Title = Title;
+        newmyreq[index].Technologies = Technologies;
+        newmyreq[index].description = description;
+        newmyreq[index].deadline = deadline;
+        newmyreq[index].email = email;
+        newmyreq[index].contactNum = contactNum;
+      }
+    }
+    setreqs(reqs);
+  }
     return (
         <div>
-            <DevContext.Provider value={{ getdev, devs, addprof, getreq, addrequire, reqs, UpdateReq, deletedev,updatedev }}>
+            <DevContext.Provider value={{ getdev, devs, addprof, getreq, addrequire, reqs, UpdateReq, deletedev,updatedev,deletereq,getmyreq,updatemyreq}}>
                 {props.children}
             </DevContext.Provider>
         </div>
     )
 }
+
 
 
 

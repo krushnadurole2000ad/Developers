@@ -24,6 +24,7 @@ function App() {
     setTimeout(() => {
       SetAlert(null);
     }, 1500);
+    // 1500 msec.
   }
   return (
     <>

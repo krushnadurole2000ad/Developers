@@ -4,10 +4,11 @@ import context from '../../context/developers/DevContext'
 import Requirement from "../Requirements/Requirement";
 import { useNavigate } from 'react-router-dom';
 // component to present all the avaialble requirements. 
-const Allrequirements = () => {
+const Allrequirements = (props) => {
     const context = useContext(DevContext);
     const { getreq, reqs, UpdateReq } = context;
     const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
+    const [flag ,setflag] = useState(false); 
     const navigate = useNavigate();
     useEffect(() => {
         if (localStorage.getItem('authtoken')) {
@@ -22,8 +23,7 @@ const Allrequirements = () => {
     const handleClick = () => {
         UpdateReq(req.id, req.eTitle, req.eTechnologies, req.edescription, req.edeadline, req.eemail, req.econtactNum)
         refclose.current.click();
-        console.log("updated");
-
+        props.showAlert("developer updated")
     }
     const onChange = (e) => {
         setreq({ ...req, [e.target.name]: e.target.value });
@@ -32,7 +32,6 @@ const Allrequirements = () => {
     const updatereq = (currentreq) => {
         ref.current.click();
         setreq({ id: currentreq._id, eTitle: currentreq.Title, eTechnologies: currentreq.Technologies, edescription: currentreq.description, edeadline: currentreq.deadline, eemail: currentreq.email, econtactNum: currentreq.contactNum })
-        console.log("updatreq")
     }
     return (
         <div>
@@ -54,7 +53,7 @@ const Allrequirements = () => {
                             <form className='my-3'>
                                 <div className="mb-3">
                                     <label htmlFor="title" className="form-label">Title</label>
-                                    <input type="email" className="form-control" id="etitle" name='etitle' aria-describedby="emailHelp" value={req.eTitle} onChange={onChange} minLength={5} required />
+                                    <input type="email" className="form-control" id="eTitle" name='eTitle' aria-describedby="emailHelp" value={req.eTitle} onChange={onChange} minLength={5} required />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description</label>
@@ -81,7 +80,7 @@ const Allrequirements = () => {
                 {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
             </div>
             {reqs.map((req) => {
-                return <Requirement key={req._id} requirement={req} updatereq={updatereq} />
+                return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag = {flag} />
             })}
         </div>
     )

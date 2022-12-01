@@ -87,3 +87,43 @@ both are available to edit and make
 changes according to the user's requirements.
 
 user can delete the user profile. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+// frontnend 
+
+developer section completed. 
+all the bugs are removed from developer section 
+1. all the pages will navigate to login is user is not 
+logged in yet. 
+2. updating developer and deleting 2. updating developer and deleting note can be done. 
+ can be done. 
+
+
+// requirements
+1. updating done. 
+2. deleting done. 
+3. live changes are not reflecting need to correct it. 
+4. reframe and optimize the code. 
+
+
+done : 
+now it is 12.15 . 
+title is not able to update.
+let us start working on live changes . 
+then work on spinner. 
+
+
+it is 12.50 . 
+did some college work. 
+now title is  able to update.

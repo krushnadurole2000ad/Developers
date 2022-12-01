@@ -8,9 +8,9 @@ const Alldevelopers = (props) => {
 
   const ref = useRef(null);
   const refclose = useRef(null);
-   
+
   const navigate = useNavigate();
-  const { getdev, devs,updatedev } = context;
+  const { getdev, devs, updatedev } = context;
   const [dev, setdev] = useState({ id: "", eemail: "", eecontact: "", eedescr: "", egithub: "", elink: "" });
 
   useEffect(() => {
@@ -22,7 +22,7 @@ const Alldevelopers = (props) => {
     }
   }, [])
 
-  const updateDev = (curdev) => { 
+  const updateDev = (curdev) => {
     ref.current.click();
     setdev({ id: curdev._id, eemail: curdev.email, eecontact: curdev.contactNum, eedescr: curdev.description, egithub: curdev.github, elink: curdev.linkedin })
   }
@@ -65,7 +65,7 @@ const Alldevelopers = (props) => {
             </div>
             <div className="modal-footer">
               <button ref={refclose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button  onClick={handleclick} type="button" className="btn btn-primary">Update Dev</button>
+              <button onClick={handleclick} type="button" className="btn btn-primary">Update Dev</button>
             </div>
           </div>
         </div>
