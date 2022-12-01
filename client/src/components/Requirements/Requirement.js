@@ -14,7 +14,17 @@ const Requirement = (props) => {
     new Date(datestr),
     new Date()
   );
-
+  const options = {
+    weekday: "long",
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  };
+  const datefinal = new Date(requirement.date).toLocaleString('en-US',options, {
+      year: 'numeric',
+      month: 'numeric',
+      day: 'numeric'
+    });
   return (
     <>
       <div className="maindev">
@@ -38,7 +48,8 @@ const Requirement = (props) => {
           </div>
           <div class="card-footer text-muted">
             {/* {developer.date} */}
-            {str}
+            {/* {str} */}
+            {datefinal}
           </div>
         </div>
       </div>

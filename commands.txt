@@ -127,3 +127,22 @@ then work on spinner.
 it is 12.50 . 
 did some college work. 
 now title is  able to update.
+
+
+it is 4.30
+data flow is proper now. 
+user can update requirements easily. 
+live changes are avaible. 
+user can delete requirements easily. 
+changes will appear instantly without page 
+refreshement required.
+
+
+what is essential to add ? 
+1. spinner. 
+2. improvement in UI. 
+3. remove user profile section from three 
+keep it in one only.
+4. optimize the code.
+5. improve the code quality.
+6. make the date more precise =>day-date/month/year. 

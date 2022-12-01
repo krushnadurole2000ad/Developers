@@ -10,6 +10,17 @@ const Developer = (props) => {
         new Date(datestr),
         new Date()
     );
+    const options = {
+        weekday: "long",
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      };
+      const datefinal = new Date(developer.date).toLocaleString('en-US',options, {
+          year: 'numeric',
+          month: 'numeric',
+          day: 'numeric'
+        });
     const {deletedev} = context;
     return (
         <div className="maindev">
@@ -33,7 +44,8 @@ const Developer = (props) => {
                 </div>
                 <div class="card-footer text-muted">
                     {/* {developer.date} */}
-                    {str}
+                    {/* {str} */}
+                    {datefinal}
                 </div>
             </div>
         </div>

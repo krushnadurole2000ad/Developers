@@ -25,10 +25,10 @@ const Navbar = () => {
                             Developer
                         </button>
                         <ul class="dropdown-menu mennu">
-                            <Link className="btn btn-primary mx-1 button" to="/">Developer </Link>
+                            {/* <Link className="btn btn-primary mx-1 button" to="/">Developer </Link> */}
                             <Link className="btn btn-primary mx-1 button" to="/alldevprof" role="button">All developers</Link>
                             <Link className="btn btn-primary mx-1 button" to="/adddprof" role="button">Add Developer</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> Profile</Link>  </ul>
+                            <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> MyDevProfiles</Link>  </ul>
                     </div>
                     <div class="btn-group name ">
                         <button class="btn btn-secondary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
@@ -38,7 +38,8 @@ const Navbar = () => {
                             {!localStorage.getItem('authtoken') ? <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
                             :<button type="button" class="btn btn-warning" onClick={handleLogOut}> Log out</button>}
                             {!localStorage.getItem('authtoken')  && 
-                                                        <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>}
+                                                        <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>}.
+                                                        <br></br>
                             <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
                             <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>
                     </div>
@@ -50,7 +51,8 @@ const Navbar = () => {
                             <Link className="btn btn-primary mx-1 button" to="/addreq" role="button">Add  Requirement</Link>
                             <Link className="btn btn-primary mx-1 button" to="/myreq" role="button">Get My requirement</Link>
                             <Link className="btn btn-primary mx-1 button" to="/allreq" role="button">Get all Requirement</Link>
-                            <Link className="btn btn-primary mx-1 button" to="/" role="button">DashBoard</Link>  </ul>
+                            {/* <Link className="btn btn-primary mx-1 button" to="/" role="button">DashBoard</Link>   */}
+                            </ul>
                     </div>
                 </div>
             </div>
