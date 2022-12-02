@@ -30,7 +30,7 @@ Router.post('/adddevelopers', fetchuser, async (req, res) => {
         //     return res.status(400).json({ errors: errors.array() });
         // }
         const element = new Element({
-            name, email, role, contactNum, description, github, linkedin, user: req.user.id,resumelink,achievements
+            name, email, role, contactNum, description, github, linkedin,resumelink,achievements, user: req.user.id
         })
         const savedelement = await element.save()
 
