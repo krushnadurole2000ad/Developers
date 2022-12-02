@@ -7,7 +7,7 @@ const MyProfiles = (props) => {
     const refclose = useRef(null);
     const navigate = useNavigate();
     const [devs, setdevs] = useState([]);
-    const [dev, setdev] = useState({ id: "", eemail: "", eecontact: "", eedescr: "", egithub: "", elink: "" });
+    const [dev, setdev] = useState({ id: "",eename:"", eemail: "",erole:"", eecontact: "", eedescr: "", egithub: "", elink: "",eresumelink:"",eachievements:"" });
     const [flag,setflag] = useState(true);
 
     useEffect(() => {
@@ -18,12 +18,13 @@ const MyProfiles = (props) => {
           navigate('/login')
         }
       }, [])
-    const updateDev = (curdev) => {
+    //   const [dev, setdev] = useState({ id: "",eename:"", eemail: "",erole:"", eecontact: "", eedescr: "", egithub: "", elink: "",eresumelink:"",eachievements:"" });
+    const updateDev = (curdev) => { 
         ref.current.click();
-        setdev({ id: curdev._id, eemail: curdev.email, eecontact: curdev.contactNum, eedescr: curdev.description, egithub: curdev.github, elink: curdev.linkedin })
+        setdev({ id: curdev._id,  eename:curdev.name , eemail: curdev.email, erole:curdev.role,eecontact: curdev.contactNum, eedescr: curdev.description,egithub: curdev.github,elink: curdev.linkedin, eresumelink:curdev.resumelink,   eachievements:curdev.achievements })
     }
     const handleclick = (e) => {
-        updatedev(dev.id, dev.eemail, dev.eecontact, dev.eedescr, dev.egithub, dev.elink);
+        updatedev(dev.id, dev.eename,dev.eemail,dev.erole, dev.eecontact, dev.eedescr, dev.egithub, dev.elink,dev.eresumelink,dev.eachievements);
         refclose.current.click();
         props.showAlert("Updated Successfully","success");
     }
@@ -42,14 +43,14 @@ const MyProfiles = (props) => {
         console.log(json);
         setdevs(json);
     }
-    const updatedev = async (id, name, email, contactNum, description, github, linkedin) => {
+    const updatedev = async (id, name, email,role, contactNum, description, github, linkedin,resumelink,achievements) => {
         const response = await fetch(`https://developerrvit.onrender.com/api/v1/updateprofile/${id}`, {
             method: 'PUT',
             headers: {
                 'Content-Type': 'application/json',
                 'authtoken': localStorage.getItem('authtoken')
             },
-            body: JSON.stringify({ name, email, contactNum, description, github, linkedin })
+            body: JSON.stringify({ name, email,role, contactNum, description, github, linkedin,resumelink,achievements })
         })
         const json = await response.json();
         let newdevs = JSON.parse(JSON.stringify(devs));
@@ -58,10 +59,13 @@ const MyProfiles = (props) => {
             if (element._id === id) {
                 newdevs[index].name = name;
                 newdevs[index].email = email;
+                newdevs[index].role = role;
                 newdevs[index].contactNum = contactNum;
                 newdevs[index].description = description;
                 newdevs[index].github = github;
                 newdevs[index].linkedin = linkedin;
+                newdevs[index].resumelink = resumelink;
+                newdevs[index].achievements = achievements;
                 break;
             }
         }
@@ -82,18 +86,55 @@ const MyProfiles = (props) => {
                         <div className="modal-body">
 
                             <form className='my-3'>
+
+                                {/* name */}
+                                <div className="mb-3">
+                                    <label htmlFor="name" className="form-label">Name</label>
+                                    <input type="text" className="form-control" id="ename" name='ename' value={dev.eename} onChange={onchange} />
+                                </div>
+                                {/* email  */}
                                 <div className="mb-3">
                                     <label htmlFor="email" className="form-label">Email</label>
                                     <input type="email" className="form-control" id="eemail" name='eemail' aria-describedby="emailHelp" value={dev.eemail} onChange={onchange} minLength={5} required />
                                 </div>
+                                
+                                {/* role */}
+                                <div className="mb-3">
+                                    <label htmlFor="role" className="form-label">Role</label>
+                                    <input type="text" className="form-control" id="erole" name='erole' value={dev.erole} onChange={onchange} />
+                                </div>
+                                {/* Contact num */}
+                                <div className="mb-3">
+                                    <label htmlFor="contactNum" className="form-label">contactNum</label>
+                                    <input type="text" className="form-control" id="econtactNum" name='econtactNum' value={dev.eecontact} onChange={onchange} />
+                                </div>
+                                {/* description  */}
                                 <div className="mb-3">
                                     <label htmlFor="description" className="form-label">Description</label>
                                     <input type="text" className="form-control" id="eedescr" name='eedescr' value={dev.eedescr} onChange={onchange} minLength={5} required />
                                 </div>
+                                {/* github */}
                                 <div className="mb-3">
                                     <label htmlFor="tag" className="form-label">Github</label>
                                     <input type="text" className="form-control" id="egithub" name='egithub' value={dev.egithub} onChange={onchange} />
                                 </div>
+                                {/* linkedin */}
+                                <div className="mb-3">
+                                    <label htmlFor="linkedin" className="form-label">linkedin</label>
+                                    <input type="text" className="form-control" id="elinkedin" name='elinkedin' value={dev.elink} onChange={onchange} />
+                                </div>
+                                {/* resumelink */}
+                                <div className="mb-3">
+                                    <label htmlFor="resumelink" className="form-label">resumelink</label>
+                                    <input type="text" className="form-control" id="eresumelink" name='eresumelink' value={dev.eresumelink} onChange={onchange} />
+                                </div>
+                                {/* achievements */}
+                                <div className="mb-3">
+                                    <label htmlFor="achievements" className="form-label">Achievements</label>
+                                    <input type="text" className="form-control" id="eachievements" name='eachievements' value={dev.eachievements} onChange={onchange} />
+                                </div>
+
+                                
                             </form>
                         </div>
                         <div className="modal-footer">

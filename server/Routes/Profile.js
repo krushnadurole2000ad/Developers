@@ -22,7 +22,7 @@ Router.get('/getalldevelopers', fetchuser, async (req, res) => {
 Router.post('/adddevelopers', fetchuser, async (req, res) => {
 
     try {
-        const { name, email, role, contactNum, description, github, linkedin } = req.body;
+        const { name, email, role, contactNum, description, github, linkedin ,resumelink,achievements} = req.body;
 
         // If there are errors, return Bad request and the errors
         // const errors = validationResult(req);
@@ -30,7 +30,7 @@ Router.post('/adddevelopers', fetchuser, async (req, res) => {
         //     return res.status(400).json({ errors: errors.array() });
         // }
         const element = new Element({
-            name, email, role, contactNum, description, github, linkedin, user: req.user.id
+            name, email, role, contactNum, description, github, linkedin, user: req.user.id,resumelink,achievements
         })
         const savedelement = await element.save()
 

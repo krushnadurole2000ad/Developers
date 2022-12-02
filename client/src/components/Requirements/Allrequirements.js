@@ -10,7 +10,7 @@ const Allrequirements = (props) => {
     const context = useContext(DevContext);
     const { getreq, reqs, UpdateReq } = context;
     const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
-    const [flag, setflag] = useState(true);
+    const [flag, setflag] = useState(false);
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -58,10 +58,9 @@ const Allrequirements = (props) => {
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
-
                             <form className='my-3'>
                                 <div className="mb-3">
-                                    <label htmlFor="title" className="form-label">Title</label>
+                                    <label htmlFor="Title" className="form-label">Title</label>
                                     <input type="email" className="form-control" id="eTitle" name='eTitle' aria-describedby="emailHelp" value={req.eTitle} onChange={onChange} minLength={5} required />
                                 </div>
                                 <div className="mb-3">
@@ -72,10 +71,7 @@ const Allrequirements = (props) => {
                                     <label htmlFor="tag" className="form-label">Technologies</label>
                                     <input type="text" className="form-control" id="eTechnologies" name='eTechnologies' value={req.eTechnologies} onChange={onChange} />
                                 </div>
-
-
                             </form>
-
                         </div>
                         <div className="modal-footer">
                             <button ref={refclose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>

@@ -2,7 +2,7 @@ import React, { useContext, useState  , useEffect} from 'react'
 import DevContext from '../../context/developers/DevContext';
 // component to add the requirmenets. 
 import { useNavigate } from 'react-router-dom';
-const AddRequirement = () => {
+const AddRequirement = (props) => {
   const navigate = useNavigate();
   const context = useContext(DevContext);
   const [req,setreq] = useState({Title:"",Technologies:"",description:"",deadline:"",email:"",contactNum:"",postedby:""})
@@ -16,6 +16,7 @@ const AddRequirement = () => {
     e.preventDefault();
     addrequire(req.Title,req.Technologies,req.description,req.deadline,req.email,req.contactNum,req.postedby);
     setreq({Title:"",Technologies:"",description:"",deadline:"",email:"",contactNum:"",postedby:""});
+    props.showAlert("Added successfully", "success")
   }
   const onchange = (e)=>{
     setreq({...req,[e.target.name]:e.target.value});
