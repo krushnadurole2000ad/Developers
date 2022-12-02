@@ -12,7 +12,7 @@ const Alldevelopers = (props) => {
   const navigate = useNavigate();
   const { getdev, devs, updatedev } = context;
   const [dev, setdev] = useState({ id: "", eemail: "", eecontact: "", eedescr: "", egithub: "", elink: "" });
-
+  const [flag,setflag] = useState(false);
   useEffect(() => {
     if (localStorage.getItem('authtoken')) {
       getdev();
@@ -76,7 +76,7 @@ const Alldevelopers = (props) => {
         {devs.length === 0 && "No Developers to Display 🥺🥺🥺"}
       </div>
       {devs.map((dev) => {
-        return <Developer key={dev._id} developer={dev} updateDev={updateDev} />
+        return <Developer key={dev._id} developer={dev} updateDev={updateDev} flag = {flag}/>
       })}
     </>
   )

@@ -8,6 +8,8 @@ const MyProfiles = (props) => {
     const navigate = useNavigate();
     const [devs, setdevs] = useState([]);
     const [dev, setdev] = useState({ id: "", eemail: "", eecontact: "", eedescr: "", egithub: "", elink: "" });
+    const [flag,setflag] = useState(true);
+
     useEffect(() => {
         if (localStorage.getItem('authtoken')) {
           getprofile();
@@ -104,7 +106,7 @@ const MyProfiles = (props) => {
             <h1>My Developer Profiles</h1>
             {
                 devs.map((dev) => {
-                    return <Developer key={dev._id} developer={dev}  updateDev={updateDev} />
+                    return <Developer key={dev._id} developer={dev}  updateDev={updateDev} flag = {flag}/>
                 })
             }
         </div>

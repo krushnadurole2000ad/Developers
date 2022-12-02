@@ -3,29 +3,30 @@ import DevContext from '../../context/developers/DevContext';
 import context from '../../context/developers/DevContext'
 import Requirement from "../Requirements/Requirement";
 import { useNavigate } from 'react-router-dom';
-import Spinner from '../Spinner';
+// import Spinner from '../Spinner';
 // component to present all the avaialble requirements. 
 const Allrequirements = (props) => {
-    const [loading,setloading] = useState([]);
+    // const [loading, setloading] = useState([]);
     const context = useContext(DevContext);
     const { getreq, reqs, UpdateReq } = context;
     const [req, setreq] = useState({ id: "", eTitle: "", eTechnologies: "", edescription: "", edeadline: "", eemail: "", econtactNum: "" })
-    const [flag ,setflag] = useState(true); 
+    const [flag, setflag] = useState(true);
     const navigate = useNavigate();
-    
+
     useEffect(() => {
         if (localStorage.getItem('authtoken')) {
-          getreq();
-          setTimeout(() => {
-            if(reqs){
-                setloading(false);
-            }        }, 1000);
-            
+            getreq();
+            // setTimeout(() => {
+            //     if (reqs) {
+            //         setloading(false);
+            //     }
+            // }, 1000);
+
         }
         else {
-          navigate('/login')
+            navigate('/login')
         }
-      }, [])
+    }, [])
     const ref = useRef(null);
     const refclose = useRef(null);
     const handleClick = () => {
@@ -83,16 +84,23 @@ const Allrequirements = (props) => {
                     </div>
                 </div>
             </div>
-            {loading && <Spinner/>}
-            {!loading && <h1>All Requirements</h1>}
-            {!loading && <div className="container mx-2">
+            <h1>All Requirements</h1>
+            <div className="container mx-2">
                 {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
-            </div>}
+            </div>
             {reqs.map((req) => {
-                return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag = {flag} />
+                return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag={flag} />
             })}
         </div>
     )
 }
 
 export default Allrequirements
+// {loading && <Spinner />}
+// {!loading && <h1>All Requirements</h1>}
+// {!loading && <div className="container mx-2">
+//     {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
+// </div>}
+// {reqs.map((req) => {
+//     return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag={flag} />
+// })}

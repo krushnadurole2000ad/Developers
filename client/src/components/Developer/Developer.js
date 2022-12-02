@@ -39,8 +39,8 @@ const Developer = (props) => {
                     <button className='btn btn-outline-dark'>Let's make collabration</button>
                 </div>
                 <div>
-                    <i className="fa-solid fa-trash-can  mx-2" onClick={() => { deletedev(developer._id); props.showAlert("Deleted Successfully","success") }}></i>
-                    <i className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateDev(developer); }}></i>
+                  {props.flag &&   <i className="fa-solid fa-trash-can  mx-2" onClick={() => { deletedev(developer._id); props.showAlert("Deleted Successfully","success") }}></i>}
+                   {props.flag &&  <i className="fa-solid fa-pen-to-square mx-2" onClick={() => { updateDev(developer); }}></i>}
                 </div>
                 <div class="card-footer text-muted">
                     {/* {developer.date} */}

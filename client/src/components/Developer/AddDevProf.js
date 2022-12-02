@@ -2,7 +2,7 @@ import React, { useContext, useState , useEffect } from 'react'
 import DevContext from '../../context/developers/DevContext'
 import '../Developer/AddDevProf.css'
 import { useNavigate } from 'react-router-dom';
-const AddProf = () => {
+const AddProf = (props) => {
     const navigate = useNavigate();
     useEffect(() => {
         if (localStorage.getItem('authtoken')) {
@@ -19,6 +19,7 @@ const AddProf = () => {
         e.preventDefault();
         addprof(Dev.name, Dev.email, Dev.role, Dev.contactNum, Dev.description, Dev.github, Dev.linkedin, Dev.resumelink, Dev.achievements);
         Setdev({ name: "", email: "", role: "", contactNum: "", description: "", github: "", linkedin: "", resumelink: "", achievements: "" })
+        props.showAlert("Added successfully", "success");
     }
     const onchange = (e) => {
         Setdev({ ...Dev, [e.target.name]: e.target.value })
