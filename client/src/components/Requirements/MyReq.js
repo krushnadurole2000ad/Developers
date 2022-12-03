@@ -123,7 +123,6 @@ const MyReq = (props) => {
             return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag={flag} />
           })
         }
-
       </div>
     </div>
   )

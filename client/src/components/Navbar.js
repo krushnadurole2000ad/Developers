@@ -21,7 +21,7 @@ const Navbar = () => {
                 </nav>
                 <div className='Hello navi tvft'>
                     <div class="btn-group name">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <button class="btn btn-secondary btn-warning dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Developer
                         </button>
                         <ul class="dropdown-menu mennu">
@@ -31,7 +31,7 @@ const Navbar = () => {
                             <Link className="btn btn-primary mx-1 button" to="/Myprofile" role="button"> MyDevProfiles</Link>  </ul>
                     </div>
                     <div class="btn-group name ">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                        <button class="btn btn-secondary btn-success dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
                             Dashboard
                         </button>
                         <ul class="dropdown-menu mennu ">
@@ -44,7 +44,7 @@ const Navbar = () => {
                             <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>
                     </div>
                     <div class="btn-group name">
-                        <button class="btn btn-secondary btn-lg dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
+                        <button class="btn btn-secondary btn-info dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" type="button">
                             Requirements
                         </button>
                         <ul class="dropdown-menu mennu">
