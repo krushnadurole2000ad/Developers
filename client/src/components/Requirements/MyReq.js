@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState, useContext } from 'react'
 import Requirement from "../Requirements/Requirement"
 import DevContext from '../../context/developers/DevContext';
 import { useNavigate } from 'react-router-dom';
+import './myreq.css'
 const MyReq = (props) => {
   const ref = useRef(null);
   const refclose = useRef(null);
@@ -100,7 +101,7 @@ const MyReq = (props) => {
                 </div>
                 <div className="mb-3">
                   <label htmlFor="contactNum" className="form-label">Contact No.</label>
-                  <input type="text" className="form-control" id="econtact" name='econtact' value={req.contactNum} onChange={onChange} minLength={5} required />
+                  <input type="text" className="form-control" id="econtactNum" name='econtactNum' value={req.econtactNum} onChange={onChange} minLength={5} required />
                 </div>
 
               </form>
@@ -115,12 +116,15 @@ const MyReq = (props) => {
       <h1>My Uploaded Requirements</h1>
       <div className="container mx-2">
         {myreqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
+      </div >
+      <div>
+        {
+          myreqs.map((req) => {
+            return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag={flag} />
+          })
+        }
+
       </div>
-      {
-        myreqs.map((req) => {
-          return <Requirement key={req._id} requirement={req} updatereq={updatereq} flag={flag} />
-        })
-      }
     </div>
   )
 }

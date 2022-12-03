@@ -28,7 +28,7 @@ const Requirement = (props) => {
   return (
     <>
       <div className="maindev">
-        <div className="maind ev card  text-center">
+        <div className="maindev card  text-center">
           <div className=" card-header   navbar-light na" >
             {requirement.Technologies}
           </div>

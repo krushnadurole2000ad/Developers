@@ -38,7 +38,7 @@ const Navbar = () => {
                             {!localStorage.getItem('authtoken') ? <Link className="btn btn-primary mx-1 button" to="/login" role="button">Log In</Link>
                             :<button type="button" class="btn btn-warning" onClick={handleLogOut}> Log out</button>}
                             {!localStorage.getItem('authtoken')  && 
-                                                        <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>}.
+                                                        <Link className="btn btn-primary mx-1 button" to="/signup" role="button">Sign Up</Link>}
                                                         <br></br>
                             <Link className="btn btn-primary mx-1 button" to="/aboutus" role="button">About us</Link>
                             <Link className="btn btn-primary mx-1 button" to="/" role="button">User Profile</Link>  </ul>

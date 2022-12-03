@@ -30,7 +30,7 @@ const AddRequirement = (props) => {
                 <form className='my-3 f'>
                     <div className="my-3">
                         <label htmlFor="Title" className="form-label">Title</label>
-                        <input type="text" className="form-control" id="Title" name='Title' aria-describedby="emailHelp" value={req.name} onChange={onchange} minLength={5} required />
+                        <input type="text" className="form-control" id="Title" name='Title' aria-describedby="emailHelp" value={req.Title} onChange={onchange} minLength={5} required />
                     </div>
                     <div className="my-3">
                         <label htmlFor="Technologies" className="form-label">Technologies</label>
