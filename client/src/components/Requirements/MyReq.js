@@ -83,13 +83,26 @@ const MyReq = (props) => {
                   <input type="text" className="form-control" id="eTitle" name='eTitle' value={req.eTitle} onChange={onChange} minLength={5} required />
                 </div>
                 <div className="mb-3">
+                  <label htmlFor="tag" className="form-label">Technologies</label>
+                  <input type="text" className="form-control" id="eTechnologies" name='eTechnologies' value={req.eTechnologies} onChange={onChange} />
+                </div>
+                <div className="mb-3">
                   <label htmlFor="description" className="form-label">Description</label>
                   <input type="text" className="form-control" id="edescription" name='edescription' value={req.edescription} onChange={onChange} minLength={5} required />
                 </div>
                 <div className="mb-3">
-                  <label htmlFor="tag" className="form-label">Technologies</label>
-                  <input type="text" className="form-control" id="eTechnologies" name='eTechnologies' value={req.eTechnologies} onChange={onChange} />
+                  <label htmlFor="deadline" className="form-label">Deadline</label>
+                  <input type="text" className="form-control" id="edeadline" name='edeadline' value={req.edeadline} onChange={onChange} minLength={5} required />
                 </div>
+                <div className="mb-3">
+                  <label htmlFor="email" className="form-label">Email</label>
+                  <input type="text" className="form-control" id="eemail" name='eemail' value={req.eemail} onChange={onChange} minLength={5} required />
+                </div>
+                <div className="mb-3">
+                  <label htmlFor="contactNum" className="form-label">Contact No.</label>
+                  <input type="text" className="form-control" id="econtact" name='econtact' value={req.contactNum} onChange={onChange} minLength={5} required />
+                </div>
+
               </form>
             </div>
             <div className="modal-footer">
