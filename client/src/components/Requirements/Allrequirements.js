@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from 'react'
 import DevContext from '../../context/developers/DevContext';
 import context from '../../context/developers/DevContext'
+import './allreq.css'
 import Requirement from "../Requirements/Requirement";
 import { useNavigate } from 'react-router-dom';
 // import Spinner from '../Spinner';
@@ -80,7 +81,7 @@ const Allrequirements = (props) => {
                     </div>
                 </div>
             </div>
-            <h1>All Requirements</h1>
+            <h1 className='name'>All Requirements</h1>
             <div className="container mx-2">
                 {reqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
             </div>

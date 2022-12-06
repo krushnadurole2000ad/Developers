@@ -26,7 +26,7 @@ const AddRequirement = (props) => {
     <div className='container'>
       <div>
             <div className='my-3 f'>
-                <h1>Add Your Requirement</h1>
+                <h1 className='name'>Add Your Requirement</h1>
                 <form className='my-3 f'>
                     <div className="my-3">
                         <label htmlFor="Title" className="form-label">Title</label>

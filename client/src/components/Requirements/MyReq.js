@@ -113,7 +113,7 @@ const MyReq = (props) => {
           </div>
         </div>
       </div>
-      <h1>My Uploaded Requirements</h1>
+      <h1 className='name'>My Uploaded Requirements</h1>
       <div className="container mx-2">
         {myreqs.length === 0 && "No Requirements to Display 🥺🥺🥺"}
       </div >
