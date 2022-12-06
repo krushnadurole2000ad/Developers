@@ -4,8 +4,8 @@ const AboutUs = () => {
   return (
     <div>
       <div className='container-1'>
-        <h3 className='name'>Hello , I am krushna Durole</h3>
-        <p className='name'>I am student at vit pune , ENTC-2024. </p>
+        <h3 className='namee'>Hello , I am krushna Durole</h3>
+        <p className='namee'>I am student at vit pune , ENTC-2024. </p>
         Reach Out to Me :
         <div><a href='https://github.com/krushnadurole'>Github</a> </div>
         <div><a href='https://www.linkedin.com/in/krushna-durole-0357931b9/'>linkedin</a></div>
@@ -16,7 +16,7 @@ const AboutUs = () => {
       <div className='container-2'>
         <div>
           <h1>Hello Guys !!!</h1>
-          <p className='name'>
+          <p className='namee'>
             WE are here to make a good and wide network of vitians
             so that they Software Developers or any other domain Enginners
             can come up together and build something innovative.
