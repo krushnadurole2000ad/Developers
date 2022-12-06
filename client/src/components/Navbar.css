@@ -1,59 +1,92 @@
-@media screen and (max-width:900px) {
-    form{
+@media screen and (max-width:600px) {
+    form {
         display: flex;
         flex-wrap: wrap;
     }
-    button{
+
+    button {
         margin: 16px;
         width: max-content;
         height: auto;
-        width:160px;  
+        border-radius: 20%;
+        width: 160px;
         font-family: 'Zen Antique', serif;
         font-size: small;
     }
-    .Hello{
-        margin-bottom: 7em;
-        position:relative;
+
+    .button {
+        border-radius: 20%;
     }
-    .mennu{
+
+    .buttonn {
+        border-radius: 20%;
+    }
+
+    .bnt {
+        margin-top: 2em;
+    }
+
+    .Hello {
+        margin-bottom: 7em;
+        position: relative;
+    }
+
+    .mennu {
         position: relative;
     }
 }
+
 @media screen and (max-width:600px) {
-    .navi{
+    .navi {
         display: flex;
         flex-direction: column;
     }
 }
+
 .panel {
     border: 0;
     margin-bottom: 0;
-  }
-  
-  .text {
+}
+
+.text {
     margin-bottom: 20px;
     padding: 15px;
-
-  }
-.button{
-    font-family: 'Roboto Serif', serif;
 }
-.toggle{
+.button:hover {
+    font-family: 'Roboto Serif', serif;
+    background-color: #95a6d2;
+    transition: 0.7s;
+    color: black;
+}
+/* .button {
+    font-family: 'Roboto Serif', serif;
+    background-color: aqua;
+    color: black;
+} */
+
+
+
+.toggle {
     margin: 4px;
 }
 
-.Hello{
-    display:flex;
+.email {
+    color: white;
+}
+
+.Hello {
+    display: flex;
     width: auto;
     margin-bottom: 5em;
 }
 
-.name{ 
+.name {
     display: flex;
     justify-content: space-around;
     width: 100%;
     margin-bottom: 5em;
 }
+
 /* 
 .tvft{
     position: relative;
