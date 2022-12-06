@@ -28,7 +28,7 @@ const AddProf = (props) => {
     return (
         <div>
             <div className='my-3 f'>
-                <h1>Add Your Developer Profile</h1>
+                <h1 className='namee'>Add Your Developer Profile</h1>
                 <form className='my-3 f'>
                     <div className="my-3">
                         <label htmlFor="name" className="form-label">Name</label>

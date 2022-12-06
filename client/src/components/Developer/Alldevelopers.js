@@ -71,7 +71,7 @@ const Alldevelopers = (props) => {
         </div>
       </div>
 
-      <div className="ht"><h1>All Developers</h1></div>
+      <div><h1 className="namee">All Developers</h1></div>
       <div className="container mx-2">
         {devs.length === 0 && "No Developers to Display 🥺🥺🥺"}
       </div>

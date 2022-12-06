@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef, useContext } from 'react'
 import Developer from '../Developer/Developer';
 import { useNavigate } from 'react-router-dom';
-
+import './mydev.css'
 const MyProfiles = (props) => {
     const ref = useRef(null);
     const refclose = useRef(null);
@@ -144,7 +144,7 @@ const MyProfiles = (props) => {
                     </div>
                 </div>
             </div>
-            <h1>My Developer Profiles</h1>
+            <h1 className='namee'>My Developer Profiles</h1>
             {
                 devs.map((dev) => {
                     return <Developer key={dev._id} developer={dev}  updateDev={updateDev} flag = {flag}/>
