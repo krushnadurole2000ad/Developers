@@ -10,14 +10,14 @@ const DashBoard = () => {
   // const {UpdateUser} = context;
   const [user, setuser] = useState({ id: "", ename: "", eemail: "" });
   useEffect(() => {
-    if(localStorage.getItem('authtoken')){
+    if (localStorage.getItem('authtoken')) {
       getuser();
-    }else{
+    } else {
       navigate('/login')
     }
   }, [])
-  
-  
+
+
   const UpdateUser = async (name) => {
     const response = await fetch('https://developerrvit.onrender.com/api/v1/updateprofile', {
       method: 'PUT',
