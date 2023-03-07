@@ -1,13 +1,11 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
+import React, { useState, useEffect, useRef } from 'react'
 import Developer from '../components/Developer/Developer'
 import UserProfile from '../components/UserProfile/UserProfile';
 import DevContext from '../context/developers/DevContext';
 import { useNavigate } from 'react-router-dom';
+
 const DashBoard = () => {
-  // it is my profile section . 
-  const context = useContext(DevContext);
   const navigate = useNavigate();
-  // const {UpdateUser} = context;
   const [user, setuser] = useState({ id: "", ename: "", eemail: "" });
   useEffect(() => {
     if (localStorage.getItem('authtoken')) {
@@ -15,6 +13,7 @@ const DashBoard = () => {
     } else {
       navigate('/login')
     }
+    console.log(user);
   }, [])
 
 
@@ -40,30 +39,17 @@ const DashBoard = () => {
         'Content-Type': 'application/json',
         'authtoken': localStorage.getItem('authtoken')
       },
-      body: JSON.stringify()
     })
     const json = await response.json();
     console.log(json);
     setuser(json);
   }
 
-  // const updateuser = (currentuser) => {
-  //   ref.current.click();
-  //   setuser({ id: currentuser._id, ename: currentuser.name, eemail: currentuser.email })
-  // }
   const updateuser = (currentuser) => {
     ref.current.click();
     setuser({ id: currentuser._id, ename: currentuser.name })
   }
 
-  // const handleclick = (e) => {
-  //   UpdateUser(user.id, user.ename, user.eemail);
-  //   refclose.current.click();
-  // }
-  // const handleclick = (e) => {
-  //   UpdateUser(user.id,user.eemail);
-  //   refclose.current.click();
-  // }
   const handleclick = (e) => {
     UpdateUser(user.ename);
     refclose.current.click();
@@ -95,19 +81,14 @@ const DashBoard = () => {
             </div>
 
             <div className="modal-body">
-
               <form className='my-3'>
                 <div className="mb-3">
                   <label htmlFor="name" className="form-label">Name</label>
                   <input type="text" className="form-control" id="ename" name='ename' value={user.ename} aria-describedby="emailHelp" onChange={onChange} minLength={5} required />
                 </div>
-                {/* <div className="mb-3">
-                  <label htmlFor="email" className="form-label"> Email</label>
-                  <input type="email" className="form-control" id="eemail" name='eemail' value={user.eemail} onChange={onChange} minLength={5} required />
-                </div> */}
               </form>
-
             </div>
+
             <div className="modal-footer">
               <button type="button" ref={refclose} className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
               <button className="btn btn-primary" onClick={handleclick} type="button">Update Note</button>
@@ -116,10 +97,14 @@ const DashBoard = () => {
           </div>
         </div>
       </div>
+      
       <div>
+        Hello {user.name} !!!
+      </div>
+
+      <div className='center'>
         <div class="col">
           <div class="card h-100">
-
             {<UserProfile key={user._id} user={user} updateuser={updateuser} />}
           </div>
         </div>
@@ -129,27 +114,3 @@ const DashBoard = () => {
 }
 
 export default DashBoard
-
-
-
-
-
-
-
-
-
-
-// const UpdateUser = async (name, email) => {
-  //   const response = await fetch('http://localhost:5000/api/v1/updateprofile', {
-  //     method: 'PUT',
-  //     headers: {
-  //       'Content-Type': 'application/json',
-  //       'authtoken': localStorage.getItem('authtoken')
-  //     },
-  //     body: JSON.stringify({ name, email })
-  //   })
-  //   const json = await response.json();
-  //   let newuser = JSON.parse(JSON.stringify(json));
-  //   newuser.name = name;
-  //   setuser(newuser);
-  // }

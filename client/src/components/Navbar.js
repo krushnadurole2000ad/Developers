@@ -12,11 +12,9 @@ const Navbar = () => {
         if (localStorage.getItem('authtoken')) {
             localStorage.removeItem("authtoken")
             navigate('/login')
-            setuser(null);
         }
     }
-    // const [user,]
-    const [user, setuser] = useState({ id: "", ename: "", email: "" });
+    const [user, setuser] = useState({ id: "", ename: "", eemail: "" });
     // const context = DevContext;
     // const {user}  = context;
     let location = useLocation();
